@@ -1,15 +1,16 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import LenisProvider from "@/app/providers/lenis-providers";
+import { Arimo } from "next/font/google";
 import "./globals.css";
+import Footer from "./Footer";
+import Header from "./Header";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const arimo = Arimo({
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-arimo",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -23,11 +24,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+    <html lang="vi">
+      <body className={`${arimo.variable} antialiased`}>
+        <LenisProvider>
+          <Header />
+          {children}
+          <Footer />
+        </LenisProvider>
       </body>
     </html>
   );
