@@ -11,6 +11,8 @@ import ProjectOverlay from "./ProjectOverlay";
 // Swiper
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import "swiper/css/pagination";
+import { Pagination } from "swiper/modules";
 
 export default function Projects() {
   const projectTitleRef = useRef<HTMLHeadingElement | null>(null);
@@ -55,13 +57,19 @@ export default function Projects() {
           </h2>
         </div>
       </div>
-      <div className="mt-10">
+      <div className="mt-8">
         <Swiper
           spaceBetween={24}
           centeredSlides
           slidesPerView={1.15}
           initialSlide={1}
           onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
+          pagination={{
+            clickable: true,
+            dynamicBullets: true,
+          }}
+          modules={[Pagination]}
+          className="mySwiper"
           breakpoints={{
             768: { slidesPerView: 2, spaceBetween: 24 },
             1024: { slidesPerView: 2.6, spaceBetween: 0 },
@@ -80,8 +88,8 @@ export default function Projects() {
                     "flex justify-center transition-all duration-300 ease-out",
                     isActive
                       ? "scale-100 opacity-100"
-                      : "scale-[0.84] opacity-50",
-                    !isActive ? "blur-[12px]" : "",
+                      : "scale-[0.84] opacity-75",
+                    !isActive ? "blur-[4px]" : "",
                   ].join(" ")}
                 >
                   <ProjectCard

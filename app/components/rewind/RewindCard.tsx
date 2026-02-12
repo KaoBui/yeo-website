@@ -13,7 +13,7 @@ export default function RewindCard({
   image,
 }: RewindCardProps) {
   return (
-    <div className="space-y-2 py-4">
+    <div className="space-y-2 bg-neutral-100 p-6">
       <div className="img-container aspect-16:9 w-full">
         <Image
           src={image.src}
@@ -24,13 +24,13 @@ export default function RewindCard({
         ></Image>
       </div>
       <div className="flex flex-col items-start gap-1">
-        <div className="text-tertiary flex w-full justify-between text-xs font-medium uppercase">
+        <div className="text-secondary flex w-full justify-between text-xs font-medium uppercase">
           <p>{name}</p>
           <p>{location}</p>
           <p>{date}</p>
         </div>
-        <h3 className="text-xl text-neutral-100">{projectName}</h3>
-        <p className="text-neutral-300">{projectDescription}</p>
+        <h3 className="text-xl text-black">{projectName}</h3>
+        <p className="text-primary">{projectDescription}</p>
       </div>
     </div>
   );

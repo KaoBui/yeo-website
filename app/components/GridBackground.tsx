@@ -7,7 +7,7 @@ export default function GridBackground() {
       {Array.from({ length: 6 }).map((_, index) => (
         <div
           key={index}
-          className="h-full w-px justify-self-center bg-neutral-100"
+          className="h-full w-full border border-neutral-50 justify-self-center"
         />
       ))}
     </div>

@@ -9,6 +9,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 
 export default function Rewind() {
+  const RewindTitleRef = useRef<HTMLDivElement | null>(null);
   const rewindRef = useRef<HTMLElement | null>(null);
   const rewindPinRef = useRef<HTMLDivElement | null>(null);
   const rewindBgRef = useRef<HTMLDivElement | null>(null);
@@ -21,6 +22,23 @@ export default function Rewind() {
   );
   const springEasing = `linear(0, 0.0019 0.48%, 0.008, 0.018 1.51%, 0.0324 2.06%, 0.0731 3.18%, 0.131 4.4%, 0.1881 5.43%, 0.261 6.62%, 0.5554 11.05%, 0.6806 13.04%, 0.7961 15.1%, 0.8901 17.06%, 0.9313, 0.968, 1.0002, 1.0281 21.04%, 1.0524, 1.0725 23.09%, 1.089 24.15%, 1.1019 25.25%, 1.113 26.66%, 1.1187 28.14%, 1.1192 29.71%, 1.1147 31.41%, 1.1078 32.83%, 1.0976 34.43%, 1.0415 41.66%, 1.0172 45.39%, 1.0068 47.44%, 0.9985 49.53%, 0.9925 51.65%, 0.9883 53.9%, 0.9859 56.92%, 0.9863 60.42%, 0.9975 73.75%, 1.001 80.97%, 1.0006 99.99%)`;
   const springDuration = 500;
+
+  useGSAP(() => {
+    if (!RewindTitleRef.current) return;
+    gsap.from(RewindTitleRef.current, {
+      y: 24,
+      opacity: 0,
+      scale: 1.5,
+      filter: "blur(16px)",
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: RewindTitleRef.current,
+        start: "top 65%",
+        end: "top 45%",
+        scrub: 1,
+      },
+    });
+  }, []);
 
   useGSAP(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -157,17 +175,16 @@ export default function Rewind() {
         <div
           ref={rewindBgRef}
           id="rewind-bg"
-          className="absolute inset-0 -z-10 rounded-[40px] bg-neutral-900 w-full"
+          className="absolute inset-0 -z-10 w-full rounded-[40px] bg-neutral-900"
         ></div>
         <div className="site-container grid h-screen grid-cols-12 gap-4">
           <div
             id="rewind-text"
-            className="pt-site-margin col-start-1 col-end-8 flex h-screen flex-col items-start justify-start gap-8"
+            className="pt-site-margin col-start-1 col-end-5 flex h-screen flex-col items-start justify-between gap-8"
           >
-            <h2 className="text-h1 text-white">hành trình đã qua</h2>
-          </div>
-          <div className="col-start-10 col-end-13 flex h-full items-end justify-end">
-            {" "}
+            <h2 ref={RewindTitleRef} className="text-h1 text-white">
+              hành trình đã qua
+            </h2>
             <p className="text-h1 text-right text-neutral-400">
               <NumberFlow
                 trend={-1}
@@ -189,7 +206,7 @@ export default function Rewind() {
         ></div>
         <div
           ref={rewindCardsWrapRef}
-          className="col-start-4 col-end-10 flex w-full justify-center"
+          className="col-start-6 col-end-13 flex w-full justify-center"
         >
           <div ref={rewindCardsMoveRef} className="will-change-transform">
             <div

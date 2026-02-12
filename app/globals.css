@@ -62,9 +62,9 @@
     --type--text-h5: 2.438em;
     --type--text-h4: 3.063em;
     --type--text-h3: 3.813em;
-    --type--text-h2: 4.75em;
-    --type--text-h1: 4.8em;
-    --type--text-display: 5.6em;
+    --type--text-h2: 4.25em;
+    --type--text-h1: 4.5em;
+    --type--text-display: 5.2em;
   }
 }
 
@@ -199,5 +199,23 @@
   }
   .number-bloc {
     @apply bg--blue-50 flex flex-col gap-20 rounded-2xl p-6;
+  }
+
+  .mySwiper {
+    padding-bottom: 2.5rem;
+  }
+
+  .mySwiper .swiper-pagination {
+    bottom: 0 !important;
+  }
+
+  .mySwiper .swiper-pagination-bullet {
+    background: var(--color--blue-300) !important;
+    opacity: 0.45 !important;
+  }
+
+  .mySwiper .swiper-pagination-bullet-active {
+    background: var(--color--blue-600) !important;
+    opacity: 1 !important;
   }
 }
