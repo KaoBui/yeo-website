@@ -32,8 +32,8 @@ export default function PartnerLogos({
   useGSAP(() => {
     if (!sectionRef.current || !rowRef.current) return;
 
-    const fromX = direction === "left" ? 12 : -12;
-    const toX = direction === "left" ? -12 : 12;
+    const fromX = direction === "left" ? 0 : -12;
+    const toX = direction === "left" ? -24 : 12;
 
     gsap.fromTo(
       rowRef.current,
@@ -56,7 +56,7 @@ export default function PartnerLogos({
   return (
     <section
       ref={sectionRef}
-      className={["w-full overflow-hidden py-16", className]
+      className={["w-full overflow-hidden my-6 py-2", className]
         .filter(Boolean)
         .join(" ")}
       aria-label="Partner logos"

@@ -11,8 +11,9 @@ export default function Footer() {
         <Image
           src={yeoWhiteLogo}
           alt="YEO Vietnam"
-          className="absolute -right-1/10 aspect-square h-[80vh] opacity-5"
-          priority
+          width={1000}
+          height={1000}
+          className="absolute -right-1/10 h-[80vh] w-auto opacity-5"
         />
         <div className="site-container bottom-0 flex h-full flex-col justify-between py-4">
           <p className="text-h1 leading-head pt-site-margin text-white uppercase">
@@ -46,7 +47,7 @@ export default function Footer() {
           </div>
           <div className="text--blue-200 flex justify-between border-t border-neutral-50 pt-4 text-sm">
             © {new Date().getFullYear()} YEO. All rights reserved.
-            <p className="uppercase text-xs">
+            <p className="text-xs uppercase">
               Website by{" "}
               <a href="https://kaobui.com/" target="_blank">
                 Kao

@@ -76,7 +76,7 @@ export default function ProjectOverlay({
               {/* Text */}
               <div className="flex flex-col items-center justify-end gap-4 px-6">
                 {/* Header */}
-                <div className="flex flex-col items-center px-1">
+                <div className="flex items-end gap-4 px-1">
                   <p className="text-md text-tertiary uppercase">
                     {project.subtitle}
                   </p>
@@ -85,7 +85,7 @@ export default function ProjectOverlay({
                   </h3>
                 </div>
                 {/* Text content */}
-                <div className="flex w-full items-center gap-6 gap-8 px-1 pb-2">
+                <div className="flex w-full items-start gap-6 gap-8 px-1 pb-2">
                   <p className="text-primary flex-1 leading-relaxed">
                     {project.paragraphs[0]}
                   </p>

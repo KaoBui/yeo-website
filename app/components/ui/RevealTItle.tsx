@@ -7,7 +7,7 @@ import { SplitText } from "gsap/SplitText";
 import { useGSAP } from "@gsap/react";
 
 type RevealTitleProps = {
-  children: string;
+  children: React.ReactNode;
   className?: string;
 };
 

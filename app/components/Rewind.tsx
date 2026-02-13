@@ -7,9 +7,10 @@ import { useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import { SplitText } from "gsap/SplitText";
 
 export default function Rewind() {
-  const RewindTitleRef = useRef<HTMLDivElement | null>(null);
+  const rewindTitleRef = useRef<HTMLDivElement | null>(null);
   const rewindRef = useRef<HTMLElement | null>(null);
   const rewindPinRef = useRef<HTMLDivElement | null>(null);
   const rewindBgRef = useRef<HTMLDivElement | null>(null);
@@ -22,20 +23,36 @@ export default function Rewind() {
   );
   const springEasing = `linear(0, 0.0019 0.48%, 0.008, 0.018 1.51%, 0.0324 2.06%, 0.0731 3.18%, 0.131 4.4%, 0.1881 5.43%, 0.261 6.62%, 0.5554 11.05%, 0.6806 13.04%, 0.7961 15.1%, 0.8901 17.06%, 0.9313, 0.968, 1.0002, 1.0281 21.04%, 1.0524, 1.0725 23.09%, 1.089 24.15%, 1.1019 25.25%, 1.113 26.66%, 1.1187 28.14%, 1.1192 29.71%, 1.1147 31.41%, 1.1078 32.83%, 1.0976 34.43%, 1.0415 41.66%, 1.0172 45.39%, 1.0068 47.44%, 0.9985 49.53%, 0.9925 51.65%, 0.9883 53.9%, 0.9859 56.92%, 0.9863 60.42%, 0.9975 73.75%, 1.001 80.97%, 1.0006 99.99%)`;
   const springDuration = 500;
+  const imageRefreshFrameRef = useRef<number | null>(null);
+
+  const handleCardImageLoad = () => {
+    if (imageRefreshFrameRef.current !== null) return;
+    imageRefreshFrameRef.current = window.requestAnimationFrame(() => {
+      imageRefreshFrameRef.current = null;
+      ScrollTrigger.refresh();
+    });
+  };
 
   useGSAP(() => {
-    if (!RewindTitleRef.current) return;
-    gsap.from(RewindTitleRef.current, {
-      y: 24,
+    if (!rewindTitleRef.current) return;
+
+    gsap.registerPlugin(ScrollTrigger, SplitText);
+
+    const split = SplitText.create(rewindTitleRef.current, {
+      type: "lines",
+      mask: "lines",
+    });
+
+    gsap.from(split.lines, {
+      yPercent: 100,
       opacity: 0,
-      scale: 1.5,
-      filter: "blur(16px)",
-      ease: "power2.out",
+      stagger: 0.08,
+      duration: 0.5,
+      ease: "power3.out",
       scrollTrigger: {
-        trigger: RewindTitleRef.current,
-        start: "top 65%",
-        end: "top 45%",
-        scrub: 1,
+        trigger: rewindTitleRef.current,
+        start: "top 20%",
+        toggleActions: "play none none reverse",
       },
     });
   }, []);
@@ -52,7 +69,7 @@ export default function Rewind() {
       return;
 
     const getPinEnd = () => {
-      const cardsHeight = rewindCardsRef.current?.offsetHeight ?? 0;
+      const cardsHeight = rewindCardsRef.current?.scrollHeight ?? 0;
       const pinDistance = Math.max(
         cardsHeight - window.innerHeight,
         window.innerHeight,
@@ -150,6 +167,10 @@ export default function Rewind() {
     });
 
     return () => {
+      if (imageRefreshFrameRef.current !== null) {
+        window.cancelAnimationFrame(imageRefreshFrameRef.current);
+        imageRefreshFrameRef.current = null;
+      }
       rewindBgTween.kill();
       rewindTrigger.kill();
       cardsCenterTween.kill();
@@ -182,10 +203,10 @@ export default function Rewind() {
             id="rewind-text"
             className="pt-site-margin col-start-1 col-end-5 flex h-screen flex-col items-start justify-between gap-8"
           >
-            <h2 ref={RewindTitleRef} className="text-h1 text-white">
-              hành trình đã qua
+            <h2 ref={rewindTitleRef} className="text-h1 text-white">
+              <span className="text--blue-400 italic"> hành trình</span> đã qua
             </h2>
-            <p className="text-h1 text-right text-neutral-400">
+            <p className="text-display text-right text-neutral-400">
               <NumberFlow
                 trend={-1}
                 transformTiming={{
@@ -226,13 +247,13 @@ export default function Rewind() {
               </div>
               <div className="w-site-margin absolute right-0 flex h-full flex-col items-center justify-around">
                 <p className="text--orange-400 w-max -rotate-90 text-xs font-medium uppercase">
-                  since 2017
+                  since 2019
                 </p>
                 <p className="text--orange-400 w-max -rotate-90 text-xs font-medium uppercase">
                   all rights reserved.
                 </p>
                 <p className="text--orange-400 w-max -rotate-90 text-xs font-medium uppercase">
-                  since 2017
+                  made with love
                 </p>
                 <p className="text--orange-400 w-max -rotate-90 text-xs font-medium uppercase">
                   all rights reserved.
@@ -245,6 +266,7 @@ export default function Rewind() {
                   width={800}
                   height={800}
                   className="h-auto w-1/2 object-cover"
+                  onLoad={() => ScrollTrigger.refresh()}
                 />
               </div>
               {rewindCards.map((card, index) => (
@@ -259,12 +281,13 @@ export default function Rewind() {
                     location={card.location}
                     date={card.date}
                     projectName={card.projectName}
-                    projectDescription={card.projectDescription}
-                    firstImage={card.firstImage}
-                    image={card.image}
-                  />
-                </div>
-              ))}
+                  projectDescription={card.projectDescription}
+                  firstImage={card.firstImage}
+                  image={card.image}
+                  onImageLoad={handleCardImageLoad}
+                />
+              </div>
+            ))}
             </div>
           </div>
         </div>

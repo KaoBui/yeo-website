@@ -62,7 +62,6 @@ export default function Projects() {
           spaceBetween={24}
           centeredSlides
           slidesPerView={1.15}
-          initialSlide={1}
           onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
           pagination={{
             clickable: true,
@@ -72,7 +71,7 @@ export default function Projects() {
           className="mySwiper"
           breakpoints={{
             768: { slidesPerView: 2, spaceBetween: 24 },
-            1024: { slidesPerView: 2.6, spaceBetween: 0 },
+            1024: { slidesPerView: 2.2, spaceBetween: 0 },
           }}
         >
           {projects.map((project, idx) => {

@@ -177,7 +177,7 @@
     font-family: var(--font-arimo);
   }
   section {
-    @apply my-20;
+    @apply my-10 md:my-12 xl:my-20 2xl:my-24;
   }
   h1,
   h2,

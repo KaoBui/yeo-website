@@ -6,6 +6,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import PartnerLogos from "./PartnerLogos";
+import RevealTitle from "./ui/RevealTItle";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -22,29 +23,6 @@ export default function Testimonials() {
     );
     const lastCard = validCards.at(-1);
     if (!lastCard) return;
-
-    gsap.from(TestimonialsTitleRef.current, {
-      y: 24,
-      opacity: 0,
-      scale: 1.5,
-      filter: "blur(16px)",
-      ease: "power2.out",
-      scrollTrigger: {
-        trigger: TestimonialsTitleRef.current,
-        start: "top bottom",
-        end: "top 75%",
-        scrub: 1,
-      },
-    });
-
-    ScrollTrigger.create({
-      trigger: TestimonialsTitleRef.current,
-      start: "top top",
-      endTrigger: lastCard,
-      end: "top top",
-      pin: true,
-      pinSpacing: false,
-    });
 
     validCards.forEach((card, index) => {
       ScrollTrigger.create({
@@ -85,8 +63,10 @@ export default function Testimonials() {
           ref={TestimonialsTitleRef}
           className="text-h1 text-secondary py-site-margin text-center"
         >
-          <span className="text-primary italic"> niềm tin </span>
-          <br /> từ cộng đồng
+          <RevealTitle>
+            <span className="text-primary italic"> niềm tin </span>
+            <br /> từ cộng đồng
+          </RevealTitle>
         </h2>
       </div>
       {feedback.map((item, index) => (
@@ -95,7 +75,7 @@ export default function Testimonials() {
           ref={(el) => {
             cardRefs.current[index] = el;
           }}
-          className="flex h-screen flex-col items-center justify-center"
+          className="flex h-screen flex-col items-center justify-center overflow-hidden"
         >
           <FeedbackCard {...item} />
         </div>

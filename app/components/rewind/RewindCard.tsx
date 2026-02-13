@@ -3,6 +3,7 @@ import Image from "next/image";
 import type { RewindCardData } from "@/app/components/rewind/Rewind";
 
 type RewindCardProps = RewindCardData;
+type RewindCardImageLoadHandler = () => void;
 
 export default function RewindCard({
   name,
@@ -12,9 +13,17 @@ export default function RewindCard({
   projectDescription,
   firstImage,
   image,
-}: RewindCardProps) {
+  onImageLoad,
+}: RewindCardProps & { onImageLoad?: RewindCardImageLoadHandler }) {
   return (
-    <div className="space-y-2 bg-neutral-50 p-6">
+    <div className="relative space-y-2 bg-neutral-50 p-6 overflow-hidden">
+      <Image
+        src="/noise-on-white.png"
+        alt="deco"
+        width={firstImage.width}
+        height={firstImage.height}
+        className="absolute inset-0 h-auto w-full object-cover opacity-40"
+      ></Image>
       <div className="img-container aspect-16:9 relative w-full overflow-hidden">
         <Image
           src={firstImage.src}
@@ -22,6 +31,7 @@ export default function RewindCard({
           width={firstImage.width}
           height={firstImage.height}
           className="absolute h-auto w-full object-cover opacity-40 mix-blend-hard-light brightness-200"
+          onLoad={onImageLoad}
         ></Image>
         <Image
           src={image.src}
@@ -29,6 +39,7 @@ export default function RewindCard({
           width={image.width}
           height={image.height}
           className="h-auto w-full object-cover"
+          onLoad={onImageLoad}
         ></Image>
       </div>
       <div className="flex flex-col items-start gap-1">

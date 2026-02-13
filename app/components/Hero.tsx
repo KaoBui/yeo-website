@@ -55,7 +55,7 @@ export default function Hero() {
       <div className="flex h-full flex-col">
         <div
           ref={containerRef}
-          className="site-container flex min-h-[65vh] flex-col gap-2 items-center justify-center pt-6 will-change-transform"
+          className="site-container flex min-h-[65vh] flex-col items-center justify-center gap-2 pt-6 will-change-transform"
           style={{ willChange: "transform, filter" }}
         >
           <Image
@@ -72,9 +72,7 @@ export default function Hero() {
             Vì thế hệ trẻ Việt Nam
           </p>
           <h1 className="text-display text--blue-600 text-center leading-none tracking-tight uppercase">
-            vươn mình
-            
-            rực rỡ
+            vươn mình rực rỡ
           </h1>
         </div>{" "}
         <div
