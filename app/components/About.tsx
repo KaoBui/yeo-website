@@ -28,7 +28,7 @@ export default function About() {
     gsap.fromTo(
       aboutImgRef.current,
       {
-        scale: 1.8,
+        scale: 0.5,
         filter: "blur(12px)",
         transformOrigin: "top center",
       },
@@ -67,14 +67,6 @@ export default function About() {
         start: "top 85%",
         toggleActions: "play none none reverse",
       },
-    });
-
-    ScrollTrigger.create({
-      trigger: aboutTitleRef.current,
-      start: "50% 50%",
-      endTrigger: aboutImgRef.current,
-      end: "50% 50%",
-      pin: true,
     });
   }, []);
 

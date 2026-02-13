@@ -46,7 +46,7 @@ export default function Footer() {
           </div>
           <div className="text--blue-200 flex justify-between border-t border-neutral-50 pt-4 text-sm">
             © {new Date().getFullYear()} YEO. All rights reserved.
-            <p className="uppercase">
+            <p className="uppercase text-xs">
               Website by{" "}
               <a href="https://kaobui.com/" target="_blank">
                 Kao

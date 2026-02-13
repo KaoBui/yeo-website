@@ -38,7 +38,7 @@ export default function Hero() {
       scrollTrigger: {
         trigger: heroRef.current,
         start: "top top",
-        end: "bottom bottom",
+        end: "+=65%",
         pin: containerRef.current,
         pinSpacing: false,
         scrub: true,
@@ -55,7 +55,7 @@ export default function Hero() {
       <div className="flex h-full flex-col">
         <div
           ref={containerRef}
-          className="site-container flex min-h-[65vh] flex-col items-center justify-center pt-6 will-change-transform"
+          className="site-container flex min-h-[65vh] flex-col gap-2 items-center justify-center pt-6 will-change-transform"
           style={{ willChange: "transform, filter" }}
         >
           <Image
@@ -68,12 +68,12 @@ export default function Hero() {
           <p className="text-secondary mb-4 text-center text-base font-medium uppercase">
             Cùng kiến tạo
           </p>
-          <p className="text-primary text-xl uppercase">
+          <p className="text-primary text-h5 uppercase">
             Vì thế hệ trẻ Việt Nam
           </p>
           <h1 className="text-display text--blue-600 text-center leading-none tracking-tight uppercase">
             vươn mình
-            <br />
+            
             rực rỡ
           </h1>
         </div>{" "}

@@ -10,6 +10,12 @@ export type RewindCardData = {
     width: number;
     height: number;
   };
+  firstImage: {
+    src: string;
+    alt: string;
+    width: number;
+    height: number;
+  };
 };
 
 export const rewindCards: RewindCardData[] = [
@@ -21,8 +27,14 @@ export const rewindCards: RewindCardData[] = [
     projectDescription:
       "Summer Starter 2019: F&B Business là chương trình trại hè trải nghiệm nghề nghiệp đầu tiên của YEO Vietnam, tập trung vào lĩnh vực Ẩm thực và Đồ uống (F&B), với hơn 20 bạn học sinh trong thời gian 7 ngày.",
     image: {
-      src: "/yeo-team.jpg",
-      alt: "Logo Yeo Vietnam",
+      src: "/summer-starter-2019.jpg",
+      alt: "Trại hè hướng nghiệp Summer Starter 2019",
+      width: 1000,
+      height: 1000,
+    },
+    firstImage: {
+      src: "/film-grain-1.jpg",
+      alt: "deco",
       width: 1000,
       height: 1000,
     },
@@ -35,8 +47,14 @@ export const rewindCards: RewindCardData[] = [
     projectDescription:
       "Summer Starter 2020: How I Met My Future là chương trình trại hè trải nghiệm và định hướng nghề nghiệp dành cho học sinh THCS, tập trung vào 5 nhóm ngành chính: Kinh doanh, Truyền thông, Quản trị dịch vụ, Công nghệ và Nghệ thuật.",
     image: {
-      src: "/yeo-team.jpg",
-      alt: "Logo Yeo Vietnam",
+      src: "/hero-8.jpg",
+      alt: "Trại hè hướng nghiệp Summer Starter 2020",
+      width: 1000,
+      height: 1000,
+    },
+    firstImage: {
+      src: "/film-grain-1.jpg",
+      alt: "deco",
       width: 1000,
       height: 1000,
     },
@@ -54,6 +72,12 @@ export const rewindCards: RewindCardData[] = [
       width: 1000,
       height: 1000,
     },
+    firstImage: {
+      src: "/film-grain-1.jpg",
+      alt: "deco",
+      width: 1000,
+      height: 1000,
+    },
   },
   {
     name: "summer camp",
@@ -65,6 +89,12 @@ export const rewindCards: RewindCardData[] = [
     image: {
       src: "/yeo-team.jpg",
       alt: "Logo Yeo Vietnam",
+      width: 1000,
+      height: 1000,
+    },
+    firstImage: {
+      src: "/film-grain-1.jpg",
+      alt: "deco",
       width: 1000,
       height: 1000,
     },
@@ -82,6 +112,12 @@ export const rewindCards: RewindCardData[] = [
       width: 1000,
       height: 1000,
     },
+    firstImage: {
+      src: "/film-grain-1.jpg",
+      alt: "deco",
+      width: 1000,
+      height: 1000,
+    },
   },
   {
     name: "VHBC",
@@ -96,5 +132,13 @@ export const rewindCards: RewindCardData[] = [
       width: 1000,
       height: 1000,
     },
+    firstImage: {
+      src: "/film-grain-1.jpg",
+      alt: "deco",
+      width: 1000,
+      height: 1000,
+    },
   },
 ];
+
+

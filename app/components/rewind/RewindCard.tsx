@@ -10,11 +10,19 @@ export default function RewindCard({
   date,
   projectName,
   projectDescription,
+  firstImage,
   image,
 }: RewindCardProps) {
   return (
-    <div className="space-y-2 bg-neutral-100 p-6">
-      <div className="img-container aspect-16:9 w-full">
+    <div className="space-y-2 bg-neutral-50 p-6">
+      <div className="img-container aspect-16:9 relative w-full overflow-hidden">
+        <Image
+          src={firstImage.src}
+          alt={firstImage.alt}
+          width={firstImage.width}
+          height={firstImage.height}
+          className="absolute h-auto w-full object-cover opacity-40 mix-blend-hard-light brightness-200"
+        ></Image>
         <Image
           src={image.src}
           alt={image.alt}

@@ -211,8 +211,33 @@ export default function Rewind() {
           <div ref={rewindCardsMoveRef} className="will-change-transform">
             <div
               ref={rewindCardsRef}
-              className="flex w-full origin-top-left rotate-[1deg] flex-col gap-12 bg-neutral-800 px-(--site--margin) py-20 shadow-xl"
+              className="rewind-wrapper-bg relative flex w-full origin-top-left rotate-[1deg] flex-col gap-12 px-(--site--margin) py-20 shadow-xl"
             >
+              <div className="w-site-margin absolute left-0 flex h-full flex-col items-center justify-around">
+                <p className="text--orange-400 w-max -rotate-90 text-xs font-medium uppercase">
+                  YEO VN
+                </p>
+                <p className="text--orange-400 w-max -rotate-90 text-xs font-medium uppercase">
+                  YEO archives
+                </p>
+                <p className="text--orange-400 w-max -rotate-90 text-xs font-medium uppercase">
+                  all rights reserved.
+                </p>
+              </div>
+              <div className="w-site-margin absolute right-0 flex h-full flex-col items-center justify-around">
+                <p className="text--orange-400 w-max -rotate-90 text-xs font-medium uppercase">
+                  since 2017
+                </p>
+                <p className="text--orange-400 w-max -rotate-90 text-xs font-medium uppercase">
+                  all rights reserved.
+                </p>
+                <p className="text--orange-400 w-max -rotate-90 text-xs font-medium uppercase">
+                  since 2017
+                </p>
+                <p className="text--orange-400 w-max -rotate-90 text-xs font-medium uppercase">
+                  all rights reserved.
+                </p>
+              </div>
               <div className="img-container flex w-full justify-center">
                 <Image
                   src="/logo-white.png"
@@ -235,6 +260,7 @@ export default function Rewind() {
                     date={card.date}
                     projectName={card.projectName}
                     projectDescription={card.projectDescription}
+                    firstImage={card.firstImage}
                     image={card.image}
                   />
                 </div>
