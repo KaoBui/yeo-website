@@ -103,6 +103,7 @@
 }
 
 @theme {
+  --breakpoint-3xl: 120rem;
   --background: #ffffff;
   --foreground: #171717;
   --color--blue-50: #f5f7ff;

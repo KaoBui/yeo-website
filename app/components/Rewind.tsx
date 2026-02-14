@@ -203,8 +203,8 @@ export default function Rewind() {
             id="rewind-text"
             className="pt-site-margin col-start-1 col-end-5 flex h-screen flex-col items-start justify-between gap-8"
           >
-            <h2 ref={rewindTitleRef} className="text-h1 text-white">
-              <span className="text--blue-400 italic"> hành trình</span> đã qua
+            <h2 ref={rewindTitleRef} className="text-h1 text-neutral-200">
+              <span className="text-white italic"> hành trình</span> đã qua
             </h2>
             <p className="text-display text-right text-neutral-400">
               <NumberFlow
@@ -281,13 +281,13 @@ export default function Rewind() {
                     location={card.location}
                     date={card.date}
                     projectName={card.projectName}
-                  projectDescription={card.projectDescription}
-                  firstImage={card.firstImage}
-                  image={card.image}
-                  onImageLoad={handleCardImageLoad}
-                />
-              </div>
-            ))}
+                    projectDescription={card.projectDescription}
+                    firstImage={card.firstImage}
+                    image={card.image}
+                    onImageLoad={handleCardImageLoad}
+                  />
+                </div>
+              ))}
             </div>
           </div>
         </div>

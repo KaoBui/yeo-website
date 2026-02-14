@@ -7,6 +7,7 @@ import { useGSAP } from "@gsap/react";
 import { projects } from "./projects/project";
 import ProjectCard from "./ProjectCard";
 import ProjectOverlay from "./ProjectOverlay";
+import RevealTitle from "./ui/RevealTItle";
 
 // Swiper
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -18,26 +19,6 @@ export default function Projects() {
   const projectTitleRef = useRef<HTMLHeadingElement | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [expandedId, setExpandedId] = useState<string | null>(null);
-
-  useGSAP(() => {
-    if (!projectTitleRef.current) return;
-
-    gsap.registerPlugin(ScrollTrigger);
-
-    gsap.from(projectTitleRef.current, {
-      y: 24,
-      opacity: 0,
-      scale: 1.5,
-      filter: "blur(16px)",
-      duration: 0.8,
-      ease: "power2.out",
-      scrollTrigger: {
-        trigger: projectTitleRef.current,
-        start: "top bottom",
-        toggleActions: "play none none reverse",
-      },
-    });
-  }, []);
 
   const expandedProject = useMemo(() => {
     if (!expandedId) return null;
@@ -52,8 +33,10 @@ export default function Projects() {
             ref={projectTitleRef}
             className="text-h1 text-secondary text-center uppercase"
           >
-            DỰ ÁN CỦA <br /> <span className="text--blue-600 italic"> YEO</span>{" "}
-            VIETNAM
+            <RevealTitle>
+              DỰ ÁN CỦA <br />
+              <span className="text-primary italic"> YEO</span> VIETNAM
+            </RevealTitle>
           </h2>
         </div>
       </div>

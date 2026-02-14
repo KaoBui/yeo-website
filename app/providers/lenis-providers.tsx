@@ -5,6 +5,13 @@ import Lenis from "lenis";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
+declare global {
+  interface Window {
+    __lenis?: Lenis;
+    __lenisLocked?: boolean;
+  }
+}
+
 export default function LenisProvider({
   children,
 }: {
@@ -17,6 +24,10 @@ export default function LenisProvider({
       duration: 1.2,
       smoothWheel: true,
     });
+    window.__lenis = lenis;
+    if (window.__lenisLocked) {
+      lenis.stop();
+    }
 
     lenis.on("scroll", ScrollTrigger.update);
 
@@ -29,6 +40,7 @@ export default function LenisProvider({
     ScrollTrigger.refresh();
 
     return () => {
+      delete window.__lenis;
       lenis.destroy();
       gsap.ticker.remove(lenis.raf);
     };
