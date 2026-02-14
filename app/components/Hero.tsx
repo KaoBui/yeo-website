@@ -50,13 +50,17 @@ export default function Hero() {
         delay: delayDuration,
         ease: "power3.out",
       })
-      .from(headingSplit.lines, {
-        yPercent: 100,
-        opacity: 0,
-        stagger: 0.08,
-        duration: 0.9,
-        ease: "power3.out",
-      }, "<0.1");
+      .from(
+        headingSplit.lines,
+        {
+          yPercent: 100,
+          opacity: 0,
+          stagger: 0.08,
+          duration: 0.9,
+          ease: "power3.out",
+        },
+        "<0.1",
+      );
 
     return () => headingSplit.revert();
   }, []);
@@ -104,7 +108,7 @@ export default function Hero() {
           alt="Logo Yeo Vietnam"
           width={100}
           height={100}
-          className="my-2 aspect-square h-20 w-20"
+          className="mb-4 aspect-square h-20 w-20"
         />{" "}
         <p ref={subheadingRef} className="text-primary text-h5 uppercase">
           Vì thế hệ trẻ Việt Nam
@@ -116,9 +120,7 @@ export default function Hero() {
           vươn mình rực rỡ
         </h1>
       </div>{" "}
-      <div
-        style={{ height: "100vh", position: "relative", marginTop: "-10vh" }}
-      >
+      <div className="h-[30svh] lg:h-[80vh] relative -mt-[10vh]">
         <CircularGallery
           items={items}
           textColor="#ffffff"

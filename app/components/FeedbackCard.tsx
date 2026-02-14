@@ -21,7 +21,7 @@ export default function FeedbackCard({
   return (
     <div
       className={[
-        "feedback-card relative flex w-2/5 flex-col gap-4 rounded-[24px] p-8 shadow-lg/5",
+        "feedback-card relative flex w-full lg:w-2/5 flex-col gap-4 rounded-[24px] p-8 shadow-lg/5",
         className,
       ]
         .filter(Boolean)

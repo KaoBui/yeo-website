@@ -18,17 +18,25 @@ export default function Fund() {
   const [fundValue, setFundValue] = useState(0);
 
   useGSAP(() => {
-    const tl = gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: fundRef.current,
-          start: "top bottom",
-          end: "bottom top",
-          scrub: true,
-        },
-      })
-      .to(fundLeftRef.current, { yPercent: 20 })
-      .to(fundRightRef.current, { yPercent: -50 }, 0);
+    gsap.registerPlugin(ScrollTrigger);
+    const mm = gsap.matchMedia();
+    mm.add("(min-width: 64rem)", () => {
+      const tl = gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: fundRef.current,
+            start: "top bottom",
+            end: "bottom top",
+            scrub: true,
+          },
+        })
+        .to(fundLeftRef.current, { yPercent: 20 })
+        .to(fundRightRef.current, { yPercent: -50 }, 0);
+
+      return () => {
+        tl.kill();
+      };
+    });
 
     gsap.fromTo(
       fundAmountRef.current,
@@ -45,31 +53,30 @@ export default function Fund() {
         },
       },
     );
-
     return () => {
-      tl.kill();
+      mm.revert();
     };
   }, []);
 
   return (
     <section ref={fundRef}>
-      <div className="site-container space-y-6 py-[10vh]">
-        <div ref={fundLeftRef} className="grid grid-cols-12 gap-6">
+      <div className="site-container space-y-16 py-[10vh] lg:space-y-6">
+        <div ref={fundLeftRef} className="grid-cols-12 gap-6 lg:grid">
           <div className="col-start-1 col-end-7 flex flex-col">
-            <h2 className="text-h1 text-secondary mb-12 text-right">
+            <h2 className="text-h1 text-secondary mb-4 text-left lg:mb-12 lg:text-right">
               <RevealTitle>
                 quỹ <span className="text-primary italic">yeo </span>
                 vietnam{" "}
               </RevealTitle>
             </h2>
-            <div className="flex flex-col items-end gap-3 overflow-hidden">
+            <div className="flex flex-col items-start gap-3 overflow-hidden lg:items-end">
               <h3 className="text-secondary text-base">tổng giá trị quỹ</h3>
               <div
                 ref={fundAmountRef}
-                className="bg--blue-600 w-1/2 rounded-md p-3"
+                className="bg--blue-600 w-2/3 rounded-md p-3 lg:w-1/2"
               >
                 {" "}
-                <p className="text--blue-50 text-right text-xl">
+                <p className="text--blue-50 text-xl lg:text-right">
                   <NumberFlow
                     trend={0}
                     transformTiming={{
@@ -87,7 +94,7 @@ export default function Fund() {
             </div>
           </div>
         </div>
-        <div ref={fundRightRef} className="grid grid-cols-12 gap-6">
+        <div ref={fundRightRef} className="grid-cols-12 gap-6 lg:grid">
           <div className="text-secondary col-start-7 col-end-12 flex flex-col gap-12">
             <p>
               Quỹ YEO Vietnam được thành lập từ sự đồng hành của ba thương hiệu

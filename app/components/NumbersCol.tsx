@@ -22,41 +22,77 @@ export default function NumbersCol() {
 
     const [card1, card2, card3, card4] = numberCardsRef.current;
     if (!card1 || !card2 || !card3 || !card4) return;
-    const cardImpair = [card1, card3];
-    const cardPair = [card2, card4];
+    const cards = [card1, card2, card3, card4];
+    const targetValues = [25, 50, 50, 60];
+    const mm = gsap.matchMedia();
 
-    const tl = gsap.timeline({
-      scrollTrigger: {
+    mm.add("(max-width: 63.999rem)", () => {
+      const triggers = cards.map((card, index) =>
+        ScrollTrigger.create({
+          trigger: card,
+          start: "top 90%",
+          onEnter: () => {
+            setCardValues((prev) => {
+              if (prev[index] === targetValues[index]) return prev;
+              const next = [...prev];
+              next[index] = targetValues[index];
+              return next;
+            });
+          },
+        }),
+      );
+
+      return () => {
+        triggers.forEach((trigger) => trigger.kill());
+      };
+    });
+
+    mm.add("(min-width: 64rem)", () => {
+      const cardImpair = [card1, card3];
+      const cardPair = [card2, card4];
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: numberRef.current,
+          start: "top bottom",
+          end: "bottom top",
+          scrub: true,
+        },
+      });
+
+      tl.fromTo(
+        cardImpair,
+        {
+          yPercent: 15,
+          duration: 1,
+        },
+        { yPercent: -15 },
+        0,
+      ).fromTo(cardPair, { yPercent: -15, duration: 1 }, { yPercent: 15 }, 0);
+
+      const valueTrigger = ScrollTrigger.create({
         trigger: numberRef.current,
         start: "top bottom",
-        end: "bottom top",
-        scrub: true,
-      },
+        onEnter: () => setCardValues([25, 50, 50, 60]),
+      });
+
+      return () => {
+        tl.kill();
+        valueTrigger.kill();
+      };
     });
 
-    tl.fromTo(
-      cardImpair,
-      {
-        yPercent: 15,
-        duration: 1,
-      },
-      { yPercent: -15 },
-      0,
-    ).fromTo(cardPair, { yPercent: -15, duration: 1 }, { yPercent: 15 }, 0);
-
-    ScrollTrigger.create({
-      trigger: numberRef.current,
-      start: "top bottom",
-      onEnter: () => setCardValues([25, 50, 50, 60]),
-    });
+    return () => {
+      mm.revert();
+    };
   }, []);
 
   return (
     <section ref={numberRef} id="numbers" className="">
-      <div className="site-container my-[50vh] grid grid-cols-12 gap-4">
+      <div className="site-container my-[50vh] flex grid-cols-12 flex-col gap-4 lg:grid">
         <div
           ref={setNumberCardRef}
-          className="number-card bg--blue-50 col-start-1 col-end-4 flex min-h-[60vh] flex-col justify-between rounded-2xl p-4"
+          className="number-card bg--blue-50 col-start-1 col-end-4"
         >
           <p className="text-h1 text--blue-600 leading-none">
             <NumberFlow
@@ -76,7 +112,7 @@ export default function NumbersCol() {
         </div>
         <div
           ref={setNumberCardRef}
-          className="number-card bg--blue-600 col-start-4 col-end-7 flex min-h-[60vh] flex-col justify-between rounded-2xl p-4"
+          className="number-card bg--blue-600 col-start-4 col-end-7"
         >
           <p className="text-h1 w-full leading-none break-normal text-white">
             <NumberFlow
@@ -97,7 +133,7 @@ export default function NumbersCol() {
         </div>
         <div
           ref={setNumberCardRef}
-          className="number-card bg--blue-50 col-start-7 col-end-10 flex min-h-[60vh] flex-col justify-between rounded-2xl p-4"
+          className="number-card bg--blue-50 col-start-7 col-end-10"
         >
           <p className="text-h1 text--blue-600 leading-none">
             <NumberFlow
@@ -117,7 +153,7 @@ export default function NumbersCol() {
         </div>
         <div
           ref={setNumberCardRef}
-          className="number-card bg--blue-600 col-start-10 col-end-13 flex min-h-[60vh] flex-col justify-between rounded-2xl p-4"
+          className="number-card bg--blue-600 col-start-10 col-end-13"
         >
           <p className="text-h1 leading-none text-white">
             <NumberFlow

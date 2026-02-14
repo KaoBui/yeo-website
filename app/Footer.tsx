@@ -19,7 +19,7 @@ export default function Footer() {
           <p className="text-h1 leading-head pt-site-margin text-white uppercase">
             đồng hành cùng <br></br> thế hệ trẻ việt nam
           </p>
-          <div className="flex gap-12">
+          <div className="flex flex-col lg:flex-row gap-12">
             <div className="flex flex-col gap-6">
               <p className="text--blue-200 text-sm uppercase">Liên hệ</p>
               <ul className="space-y-2 text-base text-white">

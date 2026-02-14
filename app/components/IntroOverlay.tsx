@@ -28,12 +28,15 @@ export default function IntroOverlay() {
 
     const counter = { value: 0 };
     const loadingTl = gsap.timeline();
-
     loadingTl
       .fromTo(
         logoRef.current,
         { opacity: 0 },
-        { opacity: 1, duration: HOLD_DURATION_S, ease: "cubic-bezier(0.95, 0.05, 0.795, 0.035)" },
+        {
+          opacity: 1,
+          duration: HOLD_DURATION_S,
+          ease: "cubic-bezier(0.95, 0.05, 0.795, 0.035)",
+        },
       )
       .to(
         counter,
@@ -92,7 +95,10 @@ export default function IntroOverlay() {
           className="relative col-start-3 col-end-5 flex items-center justify-center"
         >
           {" "}
-          <div ref={logoRef} className="w-full h-full flex items-center justify-center opacity-0">
+          <div
+            ref={logoRef}
+            className="flex h-full w-full items-center justify-center opacity-0"
+          >
             <Image
               src="/logo-white.png"
               alt="yeo logo"

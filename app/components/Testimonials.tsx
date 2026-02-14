@@ -75,7 +75,7 @@ export default function Testimonials() {
           ref={(el) => {
             cardRefs.current[index] = el;
           }}
-          className="flex h-screen flex-col items-center justify-center overflow-hidden"
+          className="flex h-screen flex-col items-center justify-center overflow-hidden mx-4"
         >
           <FeedbackCard {...item} />
         </div>

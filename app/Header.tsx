@@ -62,7 +62,7 @@ export default function Header() {
           isHeaderVisible ? "translate-y-0" : "-translate-y-[140%]"
         }`}
       >
-        <div className="bg--blue-50 overflow-hidden rounded-xl">
+        <div className="bg--blue-50 overflow-hidden rounded-xl mx-4 lg:mx-0">
           <div className="flex h-12 items-center justify-between px-4 py-2">
             <Link href="/" className="h-full font-semibold tracking-tight">
               <Image

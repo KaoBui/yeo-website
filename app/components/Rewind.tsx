@@ -35,29 +35,45 @@ export default function Rewind() {
 
   useGSAP(() => {
     if (!rewindTitleRef.current) return;
-
     gsap.registerPlugin(ScrollTrigger, SplitText);
+    const mm = gsap.matchMedia();
 
     const split = SplitText.create(rewindTitleRef.current, {
       type: "lines",
       mask: "lines",
     });
 
-    gsap.from(split.lines, {
-      yPercent: 100,
-      opacity: 0,
-      stagger: 0.08,
-      duration: 0.5,
-      ease: "power3.out",
-      scrollTrigger: {
-        trigger: rewindTitleRef.current,
-        start: "top 20%",
-        toggleActions: "play none none reverse",
+    mm.add(
+      {
+        isMobile: "(max-width: 63.999rem)",
+        isDesktop: "(min-width: 64rem)",
       },
-    });
+      (context) => {
+        const { isMobile } = context.conditions as { isMobile: boolean };
+
+        gsap.from(split.lines, {
+          yPercent: 100,
+          opacity: 0,
+          stagger: 0.08,
+          duration: 0.5,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: rewindTitleRef.current,
+            start: isMobile ? "top 50%" : "top 20%",
+            toggleActions: "play none none reverse",
+          },
+        });
+      },
+    );
+
+    return () => {
+      mm.revert();
+      split.revert();
+    };
   }, []);
 
   useGSAP(() => {
+    const mm = gsap.matchMedia();
     gsap.registerPlugin(ScrollTrigger);
     if (
       !rewindRef.current ||
@@ -67,7 +83,6 @@ export default function Rewind() {
       !rewindCardsRef.current
     )
       return;
-
     const getPinEnd = () => {
       const cardsHeight = rewindCardsRef.current?.scrollHeight ?? 0;
       const pinDistance = Math.max(
@@ -76,7 +91,6 @@ export default function Rewind() {
       );
       return `+=${pinDistance}`;
     };
-
     gsap.from(rewindCardsMoveRef.current, {
       y: "100vh",
       ease: "none",
@@ -88,7 +102,6 @@ export default function Rewind() {
         toggleActions: "play none none reverse",
       },
     });
-
     const rewindBgTween = gsap.fromTo(
       rewindBgRef.current,
       { scaleX: 0.9, transformOrigin: "top center" },
@@ -105,7 +118,6 @@ export default function Rewind() {
         },
       },
     );
-
     const rewindTrigger = ScrollTrigger.create({
       trigger: rewindRef.current,
       start: "top top",
@@ -115,55 +127,63 @@ export default function Rewind() {
       invalidateOnRefresh: true,
     });
 
-    const degToRad = (d: number) => (d * Math.PI) / 180;
-    const getLeftOffset = () => {
-      const el = rewindCardsRef.current;
-      if (!el) return 0;
-      const rect = el.getBoundingClientRect();
-      const w = rect.width;
-      const h = rect.height;
-      const theta = degToRad(0.5);
-      const minX = Math.min(
-        0,
-        w * Math.cos(theta),
-        -h * Math.sin(theta),
-        w * Math.cos(theta) - h * Math.sin(theta),
-      );
-      return -minX;
-    };
-    const cardsCenterTween = gsap.to(rewindCardsMoveRef.current, {
-      x: getLeftOffset,
-      ease: "none",
-      scrollTrigger: {
+    // Desktop-only heavy interactions.
+    mm.add("(min-width: 64rem)", () => {
+      const degToRad = (d: number) => (d * Math.PI) / 180;
+      const getLeftOffset = () => {
+        const el = rewindCardsRef.current;
+        if (!el) return 0;
+        const rect = el.getBoundingClientRect();
+        const w = rect.width;
+        const h = rect.height;
+        const theta = degToRad(0.5);
+        const minX = Math.min(
+          0,
+          w * Math.cos(theta),
+          -h * Math.sin(theta),
+          w * Math.cos(theta) - h * Math.sin(theta),
+        );
+        return -minX;
+      };
+      const cardsCenterTween = gsap.to(rewindCardsMoveRef.current, {
+        x: getLeftOffset,
+        ease: "none",
+        scrollTrigger: {
+          trigger: rewindRef.current,
+          start: "top top",
+          end: "bottom bottom",
+          scrub: true,
+          invalidateOnRefresh: true,
+        },
+      });
+
+      const activeCardTrigger = ScrollTrigger.create({
         trigger: rewindRef.current,
         start: "top top",
-        end: "bottom bottom",
+        end: getPinEnd,
         scrub: true,
         invalidateOnRefresh: true,
-      },
-    });
+        onUpdate: () => {
+          const threshold = window.innerHeight * 0.5;
+          let activeIndex = 0;
 
-    const activeCardTrigger = ScrollTrigger.create({
-      trigger: rewindRef.current,
-      start: "top top",
-      end: getPinEnd,
-      scrub: true,
-      invalidateOnRefresh: true,
-      onUpdate: () => {
-        const threshold = window.innerHeight * 0.5;
-        let activeIndex = 0;
+          cardItemRefs.current.forEach((el, index) => {
+            if (!el) return;
+            const top = el.getBoundingClientRect().top;
+            if (top <= threshold) activeIndex = index;
+          });
 
-        cardItemRefs.current.forEach((el, index) => {
-          if (!el) return;
-          const top = el.getBoundingClientRect().top;
-          if (top <= threshold) activeIndex = index;
-        });
+          const year = Number.parseInt(rewindCards[activeIndex]?.date ?? "", 10);
+          if (Number.isFinite(year)) {
+            setActiveYear((prev) => (prev === year ? prev : year));
+          }
+        },
+      });
 
-        const year = Number.parseInt(rewindCards[activeIndex]?.date ?? "", 10);
-        if (Number.isFinite(year)) {
-          setActiveYear((prev) => (prev === year ? prev : year));
-        }
-      },
+      return () => {
+        cardsCenterTween.kill();
+        activeCardTrigger.kill();
+      };
     });
 
     return () => {
@@ -173,8 +193,7 @@ export default function Rewind() {
       }
       rewindBgTween.kill();
       rewindTrigger.kill();
-      cardsCenterTween.kill();
-      activeCardTrigger.kill();
+      mm.revert();
     };
   }, []);
 
@@ -198,15 +217,18 @@ export default function Rewind() {
           id="rewind-bg"
           className="absolute inset-0 -z-10 w-full rounded-[40px] bg-neutral-900"
         ></div>
-        <div className="site-container grid h-screen grid-cols-12 gap-4">
+        <div className="site-container flex h-screen grid-cols-12 gap-4 lg:grid">
           <div
             id="rewind-text"
-            className="pt-site-margin col-start-1 col-end-5 flex h-screen flex-col items-start justify-between gap-8"
+            className="pt-site-margin col-start-1 col-end-5 flex h-screen w-full flex-col items-center justify-center gap-8 lg:items-start lg:justify-between"
           >
-            <h2 ref={rewindTitleRef} className="text-h1 text-neutral-200">
+            <h2
+              ref={rewindTitleRef}
+              className="text-h1 text-center text-neutral-200 lg:text-left"
+            >
               <span className="text-white italic"> hành trình</span> đã qua
             </h2>
-            <p className="text-display text-right text-neutral-400">
+            <p className="text-display hidden text-right text-neutral-400 lg:block">
               <NumberFlow
                 trend={-1}
                 transformTiming={{
@@ -220,10 +242,10 @@ export default function Rewind() {
           </div>
         </div>
       </div>
-      <div className="site-container relative z-10 grid grid-cols-12 gap-4">
+      <div className="site-container relative z-10 grid-cols-12 gap-4 lg:grid">
         <div
           aria-hidden="true"
-          className="col-start-1 col-end-2 h-screen"
+          className="col-start-1 col-end-2 h-[50svh] lg:h-screen"
         ></div>
         <div
           ref={rewindCardsWrapRef}
@@ -232,7 +254,7 @@ export default function Rewind() {
           <div ref={rewindCardsMoveRef} className="will-change-transform">
             <div
               ref={rewindCardsRef}
-              className="rewind-wrapper-bg relative flex w-full origin-top-left rotate-[1deg] flex-col gap-12 px-(--site--margin) py-20 shadow-xl"
+              className="rewind-wrapper-bg relative flex w-full origin-top-left flex-col gap-12 px-(--site--margin) py-20 shadow-xl lg:rotate-[1deg]"
             >
               <div className="w-site-margin absolute left-0 flex h-full flex-col items-center justify-around">
                 <p className="text--orange-400 w-max -rotate-90 text-xs font-medium uppercase">

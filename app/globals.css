@@ -206,8 +206,9 @@
     width: calc(100% - var(--site--margin) * 2);
     margin-inline: auto;
   }
-  .number-bloc {
-    @apply bg--blue-50 flex flex-col gap-20 rounded-2xl p-6;
+
+  .number-card {
+    @apply flex min-h-[30svh] flex-col justify-between rounded-2xl p-4 lg:min-h-[60vh];
   }
 
   .rewind-wrapper-bg {
