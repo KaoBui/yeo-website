@@ -60,7 +60,7 @@ export default function Fund() {
 
   return (
     <section ref={fundRef}>
-      <div className="site-container space-y-16 py-[10vh] lg:space-y-6">
+      <div className="site-container space-y-16 py-[15vh] lg:space-y-6">
         <div ref={fundLeftRef} className="grid-cols-12 gap-6 lg:grid">
           <div className="col-start-1 col-end-7 flex flex-col">
             <h2 className="text-h1 text-secondary mb-4 text-left lg:mb-12 lg:text-right">

@@ -119,8 +119,14 @@ export default function Hero() {
         >
           vươn mình rực rỡ
         </h1>
+        <div className="flex items-center p-2 rounded-xl shadow-sm gap-2 pl-4 mt-2">
+          <p className="text-xs uppercase text-primary">giá trị quỹ YEO VIETNAM</p>
+          <div className="bg--blue-600 px-4 py-2 rounded-lg text-sm text-white">
+            <p>15,000,000</p>
+          </div>
+        </div>
       </div>{" "}
-      <div className="h-[30svh] lg:h-[80vh] relative -mt-[10vh]">
+      <div className="h-[35svh] xl:h-[80vh] relative -mt-[10vh]">
         <CircularGallery
           items={items}
           textColor="#ffffff"

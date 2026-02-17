@@ -19,40 +19,42 @@ export default function Footer() {
           <p className="text-h1 leading-head pt-site-margin text-white uppercase">
             đồng hành cùng <br></br> thế hệ trẻ việt nam
           </p>
-          <div className="flex flex-col lg:flex-row gap-12">
-            <div className="flex flex-col gap-6">
-              <p className="text--blue-200 text-sm uppercase">Liên hệ</p>
-              <ul className="space-y-2 text-base text-white">
-                <li>
-                  <a href="">contact@yeo.vn</a>
-                </li>
-                <li>
-                  <a href="">+84 9 61 35 14 53</a>
-                </li>
-              </ul>
+          <div className="flex flex-col gap-8">
+            <div className="flex flex-col gap-12 lg:flex-row">
+              <div className="flex flex-col gap-6">
+                <p className="text--blue-200 text-sm uppercase">Liên hệ</p>
+                <ul className="space-y-2 text-base text-white">
+                  <li>
+                    <a href="">contact@yeo.vn</a>
+                  </li>
+                  <li>
+                    <a href="">+84 9 61 35 14 53</a>
+                  </li>
+                </ul>
+              </div>
+              <div className="flex flex-col gap-6">
+                <p className="text--blue-200 text-sm uppercase">
+                  theo dõi yeo vietnam
+                </p>
+                <ul className="space-y-2 text-base text-white">
+                  <li>
+                    <a href="">Facebook</a>
+                  </li>
+                  <li>
+                    <a href="">TikTok</a>
+                  </li>
+                </ul>
+              </div>
             </div>
-            <div className="flex flex-col gap-6">
-              <p className="text--blue-200 text-sm uppercase">
-                theo dõi yeo vietnam
+            <div className="text--blue-200 flex justify-between border-t border-neutral-50 pt-4 text-sm">
+              © {new Date().getFullYear()} YEO. All rights reserved.
+              <p className="text-xs uppercase">
+                Website by{" "}
+                <a href="https://kaobui.com/" target="_blank">
+                  Kao
+                </a>{" "}
               </p>
-              <ul className="space-y-2 text-base text-white">
-                <li>
-                  <a href="">Facebook</a>
-                </li>
-                <li>
-                  <a href="">TikTok</a>
-                </li>
-              </ul>
             </div>
-          </div>
-          <div className="text--blue-200 flex justify-between border-t border-neutral-50 pt-4 text-sm">
-            © {new Date().getFullYear()} YEO. All rights reserved.
-            <p className="text-xs uppercase">
-              Website by{" "}
-              <a href="https://kaobui.com/" target="_blank">
-                Kao
-              </a>{" "}
-            </p>
           </div>
         </div>
       </div>

@@ -16,13 +16,13 @@ export default function RewindCard({
   onImageLoad,
 }: RewindCardProps & { onImageLoad?: RewindCardImageLoadHandler }) {
   return (
-    <div className="relative space-y-2 bg-neutral-50 p-6 overflow-hidden">
+    <div className="relative max-w-4xl space-y-2 overflow-hidden bg-neutral-50 p-4">
       <Image
         src="/noise-on-white.png"
         alt="deco"
         width={firstImage.width}
         height={firstImage.height}
-        className="absolute inset-0 h-auto w-full object-cover opacity-40"
+        className="absolute inset-0 h-auto w-full object-cover mix-blend-multiply"
       ></Image>
       <div className="img-container aspect-16:9 relative w-full overflow-hidden">
         <Image
@@ -42,7 +42,7 @@ export default function RewindCard({
           onLoad={onImageLoad}
         ></Image>
       </div>
-      <div className="flex flex-col items-start gap-1">
+      <div className="relative z-1 flex flex-col items-start gap-1">
         <div className="text-secondary flex w-full justify-between text-xs font-medium uppercase">
           <p>{name}</p>
           <p>{location}</p>

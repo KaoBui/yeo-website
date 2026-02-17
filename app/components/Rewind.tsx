@@ -173,7 +173,10 @@ export default function Rewind() {
             if (top <= threshold) activeIndex = index;
           });
 
-          const year = Number.parseInt(rewindCards[activeIndex]?.date ?? "", 10);
+          const year = Number.parseInt(
+            rewindCards[activeIndex]?.date ?? "",
+            10,
+          );
           if (Number.isFinite(year)) {
             setActiveYear((prev) => (prev === year ? prev : year));
           }
@@ -220,7 +223,7 @@ export default function Rewind() {
         <div className="site-container flex h-screen grid-cols-12 gap-4 lg:grid">
           <div
             id="rewind-text"
-            className="pt-site-margin col-start-1 col-end-5 flex h-screen w-full flex-col items-center justify-center gap-8 lg:items-start lg:justify-between"
+            className="pt-[10svh] xl:pt-site-margin col-start-1 col-end-5 flex h-screen w-full flex-col items-center gap-8 lg:items-start lg:justify-between"
           >
             <h2
               ref={rewindTitleRef}
@@ -256,7 +259,7 @@ export default function Rewind() {
               ref={rewindCardsRef}
               className="rewind-wrapper-bg relative flex w-full origin-top-left flex-col gap-12 px-(--site--margin) py-20 shadow-xl lg:rotate-[1deg]"
             >
-              <div className="w-site-margin absolute left-0 flex h-full flex-col items-center justify-around">
+              <div className="w-site-margin absolute left-0 flex h-full flex-col items-center justify-around text-sm">
                 <p className="text--orange-400 w-max -rotate-90 text-xs font-medium uppercase">
                   YEO VN
                 </p>

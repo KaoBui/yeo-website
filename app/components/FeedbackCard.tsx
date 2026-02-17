@@ -21,7 +21,7 @@ export default function FeedbackCard({
   return (
     <div
       className={[
-        "feedback-card relative flex w-full lg:w-2/5 flex-col gap-4 rounded-[24px] p-8 shadow-lg/5",
+        "feedback-card relative flex min-h-[60vh] w-full flex-col justify-end gap-4 rounded-[24px] p-8 3xl:p-16 shadow-lg/5 lg:w-2/5",
         className,
       ]
         .filter(Boolean)
@@ -38,7 +38,7 @@ export default function FeedbackCard({
         &ldquo;
       </p>
       <div className="flex justify-end">
-        <div className="img-container relative aspect-square w-1/5 overflow-hidden rounded-[24px] bg-neutral-100">
+        <div className="img-container relative aspect-square w-1/5 overflow-hidden rounded-[24px]">
           {img ? (
             <Image src={img} alt={name} fill className="object-cover" />
           ) : null}
@@ -55,7 +55,7 @@ export default function FeedbackCard({
       </div>
       <p className="text-primary leading-body text-base">{longText}</p>
       <div className="flex w-full justify-end">
-        <p className="text-right text-sm italic">{name}</p>
+        <p className="text-right text-tertiary text-sm italic">{name}</p>
       </div>
     </div>
   );

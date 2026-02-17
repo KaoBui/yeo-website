@@ -62,7 +62,7 @@ export default function Header() {
           isHeaderVisible ? "translate-y-0" : "-translate-y-[140%]"
         }`}
       >
-        <div className="bg--blue-50 overflow-hidden rounded-xl mx-4 lg:mx-0">
+        <div className="bg-white overflow-hidden rounded-xl mx-4 lg:mx-0 shadow-sm">
           <div className="flex h-12 items-center justify-between px-4 py-2">
             <Link href="/" className="h-full font-semibold tracking-tight">
               <Image
@@ -116,7 +116,7 @@ export default function Header() {
                     <Link
                       href={link.href}
                       onClick={() => setIsMenuOpen(false)}
-                      className="text--blue-600 hover:bg--blue-100 block rounded-md px-3 py-2 uppercase"
+                      className="text-primary hover:text--blue-600 hover:bg--blue-100 block rounded-md px-3 py-2 uppercase text-center"
                     >
                       {link.label}
                     </Link>

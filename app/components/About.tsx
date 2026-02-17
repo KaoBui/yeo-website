@@ -78,7 +78,7 @@ export default function About() {
           className="text-h1 text-secondary leading-head text-center uppercase"
         >
           Về
-          <span className="text--blue-600 italic"> YEO </span>
+          <span className="text-primary italic"> YEO </span>
           <br></br>
           VIETNAM
         </h2>

@@ -5,18 +5,18 @@
   --font-base: max(1rem, 16px);
   --type--lh-body: 1.6;
   --type--lh-head: 1.1;
-  --type--text-xs: 0.813em;
-  --type--text-sm: 0.875em;
+  --type--text-xs: 0.8em;
+  --type--text-sm: 0.89em;
   --type--text-base: 1em;
-  --type--text-md: 1.125em;
+  --type--text-md: 1.12em;
   --type--text-lg: 1.25em;
-  --type--text-xl: 1.438em;
-  --type--text-h5: 1.625em;
-  --type--text-h4: 1.813em;
-  --type--text-h3: 2em;
-  --type--text-h2: 2.25em;
-  --type--text-h1: 2.563em;
-  --type--text-display: 2.875em;
+  --type--text-xl: 1.4em;
+  --type--text-h5: 1.56em;
+  --type--text-h4: 1.75em;
+  --type--text-h3: 1.95em;
+  --type--text-h2: 2.18em;
+  --type--text-h1: 2.44em;
+  --type--text-display: 3.05em;
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -51,7 +51,7 @@
   --sidebar-ring: oklch(0.708 0 0);
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1024px) {
   :root {
     --type--text-xs: 0.813em;
     --type--text-sm: 0.875em;
@@ -73,15 +73,15 @@
     --type--text-xs: 0.813em;
     --type--text-sm: 0.875em;
     --type--text-base: 1em;
-    --type--text-md: 1.313em;
-    --type--text-lg: 1.75em;
-    --type--text-xl: 2.3758em;
-    --type--text-h5: 3.188em;
-    --type--text-h4: 4.188em;
-    --type--text-h3: 5.625em;
-    --type--text-h2: 7.5em;
-    --type--text-h1: 8em;
-    --type--text-display: 9em;
+    --type--text-md: 1.25em;
+    --type--text-lg: 1.563em;
+    --type--text-xl: 1.938em;
+    --type--text-h5: 2.438em;
+    --type--text-h4: 3.063em;
+    --type--text-h3: 3.813em;
+    --type--text-h2: 4.25em;
+    --type--text-h1: 4.6em;
+    --type--text-display: 5.3em;
   }
 }
 
@@ -212,9 +212,11 @@
   }
 
   .rewind-wrapper-bg {
-    background-image: url("/noise-on-black.png");
+    background-image: url("/noise-on-black.jpg");
     background-repeat: repeat;
     background-size: auto;
+    background-blend-mode: screen;
+    background-color: var(--color-neutral-800);
   }
 
   .mySwiper {

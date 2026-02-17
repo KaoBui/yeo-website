@@ -26,7 +26,7 @@ export default function NumbersCol() {
     const targetValues = [25, 50, 50, 60];
     const mm = gsap.matchMedia();
 
-    mm.add("(max-width: 63.999rem)", () => {
+    mm.add("(max-width: 64rem)", () => {
       const triggers = cards.map((card, index) =>
         ScrollTrigger.create({
           trigger: card,
@@ -47,7 +47,7 @@ export default function NumbersCol() {
       };
     });
 
-    mm.add("(min-width: 64rem)", () => {
+    mm.add("(min-width: 64.1rem)", () => {
       const cardImpair = [card1, card3];
       const cardPair = [card2, card4];
 
@@ -89,7 +89,7 @@ export default function NumbersCol() {
 
   return (
     <section ref={numberRef} id="numbers" className="">
-      <div className="site-container my-[50vh] flex grid-cols-12 flex-col gap-4 lg:grid">
+      <div className="site-container my-[50vh] flex grid-cols-12 flex-col gap-4 xl:grid">
         <div
           ref={setNumberCardRef}
           className="number-card bg--blue-50 col-start-1 col-end-4"
@@ -106,7 +106,7 @@ export default function NumbersCol() {
               suffix="+"
             />
           </p>
-          <p className="text-secondary text-md pr-[10%] font-medium uppercase">
+          <p className="text-secondary text-base pr-[10%] font-medium uppercase">
             CHƯƠNG TRÌNH HƯỚNG NGHIỆP
           </p>
         </div>
@@ -127,7 +127,7 @@ export default function NumbersCol() {
             />
             000+
           </p>
-          <p className="text--blue-50 text-md pr-[10%] uppercase">
+          <p className="text--blue-50 text-base pr-[10%] uppercase">
             người theo dõi trên các nền tảng
           </p>
         </div>
@@ -147,7 +147,7 @@ export default function NumbersCol() {
               suffix="+"
             />
           </p>
-          <p className="text-secondary text-md pr-[10%] uppercase">
+          <p className="text-secondary text-base pr-[10%] uppercase">
             đối tác đồng hành
           </p>
         </div>
@@ -169,7 +169,7 @@ export default function NumbersCol() {
             />
             000+
           </p>
-          <p className="text--blue-50 text-md pr-[10%] uppercase">
+          <p className="text--blue-50 text-base pr-[10%] uppercase">
             phụ huynh, học sinh trên toàn quốc
           </p>
         </div>

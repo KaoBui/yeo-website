@@ -60,7 +60,10 @@ export default function ProjectOverlay({
               {/* Image row */}
               <div className="img-container grid flex-1 grid-cols-1 overflow-hidden rounded-[32px] shadow-[0_4px_50px_rgba(0,0,0,0.2)] sm:grid-cols-3">
                 {rowImages.map((src, i) => (
-                  <div key={`${project.id}-${src}-${i}`} className="relative min-h-[220px]">
+                  <div
+                    key={`${project.id}-${src}-${i}`}
+                    className="relative min-h-[220px]"
+                  >
                     <Image
                       src={src}
                       alt={`${project.imageAlt} ${i + 1}`}
@@ -74,9 +77,9 @@ export default function ProjectOverlay({
               </div>
 
               {/* Text */}
-              <div className="flex flex-col items-center justify-end gap-4 px-6">
+              <div className="flex w-full flex-col items-center justify-end gap-4 px-0 md:px-6">
                 {/* Header */}
-                <div className="flex items-end gap-4 px-1">
+                <div className="flex w-full flex-col items-start gap-2 px-1 md:flex-row md:items-end md:gap-4">
                   <p className="text-md text-tertiary uppercase">
                     {project.subtitle}
                   </p>
@@ -85,7 +88,7 @@ export default function ProjectOverlay({
                   </h3>
                 </div>
                 {/* Text content */}
-                <div className="flex w-full items-start gap-6 gap-8 px-1 pb-2">
+                <div className="flex w-full flex-col items-start gap-2 px-1 pb-2 text-sm md:flex-row md:gap-6 md:text-base">
                   <p className="text-primary flex-1 leading-relaxed">
                     {project.paragraphs[0]}
                   </p>
