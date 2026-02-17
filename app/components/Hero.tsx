@@ -119,7 +119,7 @@ export default function Hero() {
         >
           vươn mình rực rỡ
         </h1>
-        <div className="flex items-center p-2 rounded-xl shadow-sm gap-2 pl-4 mt-2">
+        <div className="flex items-center p-2 rounded-xl shadow-sm gap-2 pl-4 mt-2 bg-white">
           <p className="text-xs uppercase text-primary">giá trị quỹ YEO VIETNAM</p>
           <div className="bg--blue-600 px-4 py-2 rounded-lg text-sm text-white">
             <p>15,000,000</p>

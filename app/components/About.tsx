@@ -9,6 +9,8 @@ import { SplitText } from "gsap/SplitText";
 
 export default function About() {
   const aboutImgRef = useRef<HTMLDivElement | null>(null);
+  const aboutLeftImgRef = useRef<HTMLDivElement | null>(null);
+  const aboutRightImgRef = useRef<HTMLDivElement | null>(null);
   const aboutRef = useRef<HTMLDivElement | null>(null);
   const aboutTitleRef = useRef<HTMLDivElement | null>(null);
   const firstTextWrapRef = useRef<HTMLDivElement | null>(null);
@@ -25,10 +27,19 @@ export default function About() {
 
     gsap.registerPlugin(ScrollTrigger);
 
-    gsap.fromTo(
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: aboutImgRef.current,
+        start: "top bottom",
+        end: "bottom top",
+        scrub: true,
+      },
+    });
+
+    tl.fromTo(
       aboutImgRef.current,
       {
-        scale: 0.5,
+        scale: 1.5,
         filter: "blur(12px)",
         transformOrigin: "top center",
       },
@@ -36,14 +47,45 @@ export default function About() {
         scale: 1,
         filter: "blur(0px)",
         ease: "none",
-        scrollTrigger: {
-          trigger: aboutImgRef.current,
-          start: "top bottom",
-          end: "top 50%",
-          scrub: true,
-        },
+        duration: 0.3,
       },
-    );
+    )
+      .from(
+        aboutLeftImgRef.current,
+        {
+          xPercent: -55,
+          ease: "none",
+          duration: 0.3,
+        },
+        0,
+      )
+      .from(
+        aboutLeftImgRef.current,
+        {
+          yPercent: 30,
+          ease: "none",
+          duration: 1,
+        },
+        "<0",
+      )
+      .from(
+        aboutRightImgRef.current,
+        {
+          xPercent: 55,
+          ease: "none",
+          duration: 0.3,
+        },
+        0,
+      )
+      .from(
+        aboutRightImgRef.current,
+        {
+          yPercent: 30,
+          ease: "none",
+          duration: 1,
+        },
+        "<0",
+      );
   }, []);
 
   useGSAP(() => {
@@ -71,7 +113,7 @@ export default function About() {
   }, []);
 
   return (
-    <section ref={aboutRef} id="about" className="">
+    <section ref={aboutRef} id="about" className="pt-[15vh]">
       <div className="site-container flex h-full flex-col items-center justify-center gap-6">
         <h2
           ref={aboutTitleRef}
@@ -84,15 +126,41 @@ export default function About() {
         </h2>
         <div
           ref={aboutImgRef}
-          className="img-container pt-site-margin aspect-16/9 w-1/2 py-10"
+          className="pt-site-margin grid grid-cols-12 gap-4 py-10"
         >
-          <Image
-            src="/yeo-team.jpg"
-            alt="Logo Yeo Vietnam"
-            width={900}
-            height={600}
-            className="h-auto w-full rounded-3xl object-cover object-center"
-          />
+          <div className="col-start-4 col-end-10 row-start-1 py-6">
+            <Image
+              src="/yeo-team-3.jpg"
+              alt="Logo Yeo Vietnam"
+              width={900}
+              height={600}
+              className="aspect-16/9 h-auto w-full rounded-xl object-cover object-center"
+            />
+          </div>
+          <div
+            ref={aboutLeftImgRef}
+            className="col-start-2 col-end-5 row-start-1 flex items-start"
+          >
+            <Image
+              src="/hero-8.jpg"
+              alt="Logo Yeo Vietnam"
+              width={900}
+              height={600}
+              className="aspect-16/9 h-auto w-full rounded-lg object-cover object-center shadow-xl"
+            />
+          </div>
+          <div
+            ref={aboutRightImgRef}
+            className="col-start-9 col-end-12 row-start-1 flex items-end"
+          >
+            <Image
+              src="/yeo-team-2.jpg"
+              alt="Logo Yeo Vietnam"
+              width={900}
+              height={600}
+              className="aspect-16/9 h-auto w-full rounded-lg object-cover object-center shadow-xl"
+            />
+          </div>
         </div>
         <div
           ref={firstTextWrapRef}

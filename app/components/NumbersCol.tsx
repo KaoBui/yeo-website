@@ -106,7 +106,7 @@ export default function NumbersCol() {
               suffix="+"
             />
           </p>
-          <p className="text-secondary text-base pr-[10%] font-medium uppercase">
+          <p className="text-secondary pr-[10%] text-base font-medium uppercase">
             CHƯƠNG TRÌNH HƯỚNG NGHIỆP
           </p>
         </div>
@@ -127,7 +127,7 @@ export default function NumbersCol() {
             />
             000+
           </p>
-          <p className="text--blue-50 text-base pr-[10%] uppercase">
+          <p className="text--blue-50 pr-[10%] text-base uppercase">
             người theo dõi trên các nền tảng
           </p>
         </div>
@@ -147,7 +147,7 @@ export default function NumbersCol() {
               suffix="+"
             />
           </p>
-          <p className="text-secondary text-base pr-[10%] uppercase">
+          <p className="text-secondary pr-[10%] text-base uppercase">
             đối tác đồng hành
           </p>
         </div>
@@ -169,7 +169,7 @@ export default function NumbersCol() {
             />
             000+
           </p>
-          <p className="text--blue-50 text-base pr-[10%] uppercase">
+          <p className="text--blue-50 pr-[10%] text-base uppercase">
             phụ huynh, học sinh trên toàn quốc
           </p>
         </div>
