@@ -1,5 +1,6 @@
 "use client";
 import { gsap } from "gsap";
+import { useTranslations } from "next-intl";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import RevealText from "./ui/RevealText";
@@ -8,6 +9,7 @@ import Image from "next/image";
 import { SplitText } from "gsap/SplitText";
 
 export default function About() {
+  const t = useTranslations("About");
   const aboutImgRef = useRef<HTMLDivElement | null>(null);
   const aboutLeftImgRef = useRef<HTMLDivElement | null>(null);
   const aboutRightImgRef = useRef<HTMLDivElement | null>(null);
@@ -119,10 +121,10 @@ export default function About() {
           ref={aboutTitleRef}
           className="text-h1 text-secondary leading-head text-center uppercase"
         >
-          Về
-          <span className="text-primary italic"> YEO </span>
-          <br></br>
-          VIETNAM
+          {t.rich("title", {
+            em: (chunks) => <span className="text-primary italic">{chunks}</span>,
+            br: () => <br />,
+          })}
         </h2>
         <div
           ref={aboutImgRef}
@@ -168,12 +170,13 @@ export default function About() {
         >
           <p>
             <RevealText className="text-secondary text-center text-xl">
-              <span className="text-primary font-medium uppercase">
-                Youth Empowerment Organization (YEO) Vietnam
-              </span>{" "}
-              là Tổ chức Định hướng và Phát triển Tiềm năng trẻ Việt Nam.
+              {t.rich("p1", {
+                strong: (chunks) => (
+                  <span className="text-primary font-medium uppercase">{chunks}</span>
+                ),
+              })}
             </RevealText>
-          </p>{" "}
+          </p>
         </div>
         <div
           ref={secondTextWrapRef}
@@ -181,12 +184,11 @@ export default function About() {
         >
           <p>
             <RevealText className="text-secondary text-center text-xl">
-              <span className="text-primary font-medium uppercase">
-                YEO Vietnam{" "}
-              </span>{" "}
-              mang sứ mệnh xây dựng một hệ sinh thái giáo dục hiện đại, nơi mỗi
-              cá nhân đều được trao quyền để thấu hiểu bản thân và tự tin kiến
-              tạo tương lai.
+              {t.rich("p2", {
+                strong: (chunks) => (
+                  <span className="text-primary font-medium uppercase">{chunks}</span>
+                ),
+              })}
             </RevealText>
           </p>
         </div>

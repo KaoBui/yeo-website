@@ -1,4 +1,5 @@
 "use client";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import NumberFlow from "@number-flow/react";
 import { useRef, useState } from "react";
@@ -8,6 +9,7 @@ import { useGSAP } from "@gsap/react";
 import RevealTitle from "./ui/RevealTItle";
 
 export default function Fund() {
+  const t = useTranslations("Fund");
   const fundRef = useRef<HTMLElement | null>(null);
   const fundLeftRef = useRef<HTMLDivElement | null>(null);
   const fundRightRef = useRef<HTMLDivElement | null>(null);
@@ -65,17 +67,17 @@ export default function Fund() {
           <div className="col-start-1 col-end-7 flex flex-col">
             <h2 className="text-h1 text-secondary mb-4 text-left lg:mb-12 lg:text-right">
               <RevealTitle>
-                quỹ <span className="text-primary italic">yeo </span>
-                vietnam{" "}
+                {t.rich("title", {
+                  em: (chunks) => <span className="text-primary italic">{chunks}</span>,
+                })}
               </RevealTitle>
             </h2>
             <div className="flex flex-col items-start gap-3 overflow-hidden lg:items-end">
-              <h3 className="text-secondary text-base">tổng giá trị quỹ</h3>
+              <h3 className="text-secondary text-base">{t("totalLabel")}</h3>
               <div
                 ref={fundAmountRef}
                 className="bg--blue-600 w-2/3 rounded-md p-3 lg:w-1/2"
               >
-                {" "}
                 <p className="text--blue-50 text-xl lg:text-right">
                   <NumberFlow
                     trend={0}
@@ -88,63 +90,50 @@ export default function Fund() {
                   />
                 </p>
               </div>
-              <p className="text-tertiary text-xs">
-                cập nhật lần cuối ngày 14/2
-              </p>
+              <p className="text-tertiary text-xs">{t("lastUpdated")}</p>
             </div>
           </div>
         </div>
         <div ref={fundRightRef} className="grid-cols-12 gap-6 lg:grid">
           <div className="text-secondary col-start-7 col-end-12 flex flex-col gap-12">
-            <p>
-              Quỹ YEO Vietnam được thành lập từ sự đồng hành của ba thương hiệu
-              Nerd.box, Contrast và Ru:tine, thông qua cơ chế đóng góp 500đ trên
-              mỗi hóa đơn. Quỹ ra đời với sứ mệnh trao quyền và mở ra cơ hội
-              phát triển cho thế hệ trẻ Việt Nam.
-            </p>
-            <p>
-              Quỹ tập trung triển khai các dự án giáo dục nổi bật: From Beans to
-              Dreams, Summer Camp - Định hướng nghề nghiệp, Vietnam High School
-              Business Case Competition, và chuỗi talkshow “Chào Safe”. Từ những
-              đóng góp nhỏ, Quỹ YEO Vietnam đang từng bước xây dựng một thế hệ
-              trẻ tự tin - bản lĩnh - sẵn sàng kiến tạo tương lai.
-            </p>
+            <p>{t("p1")}</p>
+            <p>{t("p2")}</p>
             <div className="flex w-full gap-8">
               <div className="flex flex-col items-start">
                 <div className="flex items-center justify-center rounded-2xl bg-neutral-50 p-2">
                   <Image
                     src="/logo-blue.png"
-                    alt="Logo Yeo Vietnam"
+                    alt={t("logoAlt")}
                     width={60}
                     height={60}
                     className="h-auto w-full rounded-3xl object-cover object-center"
                   />
                 </div>
-                <p>Yeo Vietnam</p>
+                <p>{t("brand")}</p>
               </div>
               <div className="flex flex-col items-start">
                 <div className="flex items-center justify-center rounded-2xl bg-neutral-50 p-2">
                   <Image
                     src="/logo-blue.png"
-                    alt="Logo Yeo Vietnam"
+                    alt={t("logoAlt")}
                     width={60}
                     height={60}
                     className="h-auto w-full rounded-3xl object-cover object-center"
                   />
                 </div>
-                <p>Yeo Vietnam</p>
+                <p>{t("brand")}</p>
               </div>
               <div className="flex flex-col items-start">
                 <div className="flex items-center justify-center rounded-2xl bg-neutral-50 p-2">
                   <Image
                     src="/logo-blue.png"
-                    alt="Logo Yeo Vietnam"
+                    alt={t("logoAlt")}
                     width={60}
                     height={60}
                     className="h-auto w-full rounded-3xl object-cover object-center"
                   />
                 </div>
-                <p>Yeo Vietnam</p>
+                <p>{t("brand")}</p>
               </div>
             </div>
           </div>

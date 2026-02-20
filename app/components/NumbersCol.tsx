@@ -1,11 +1,13 @@
 "use client";
 import NumberFlow, { continuous } from "@number-flow/react";
+import { useTranslations } from "next-intl";
 import { useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 
 export default function NumbersCol() {
+  const t = useTranslations("Numbers");
   const numberRef = useRef<HTMLElement | null>(null);
   const numberCardsRef = useRef<HTMLDivElement[]>([]);
   const [cardValues, setCardValues] = useState([0, 0, 0, 0]);
@@ -107,14 +109,14 @@ export default function NumbersCol() {
             />
           </p>
           <p className="text-secondary pr-[10%] text-base font-medium uppercase">
-            CHƯƠNG TRÌNH HƯỚNG NGHIỆP
+            {t("card1")}
           </p>
         </div>
         <div
           ref={setNumberCardRef}
           className="number-card bg--blue-600 col-start-4 col-end-7"
         >
-          <p className="text-h1 w-full leading-none break-normal text-white">
+          <p className="text-h1 w-full break-normal leading-none text-white">
             <NumberFlow
               trend={0}
               transformTiming={{
@@ -127,9 +129,7 @@ export default function NumbersCol() {
             />
             000+
           </p>
-          <p className="text--blue-50 pr-[10%] text-base uppercase">
-            người theo dõi trên các nền tảng
-          </p>
+          <p className="text--blue-50 pr-[10%] text-base uppercase">{t("card2")}</p>
         </div>
         <div
           ref={setNumberCardRef}
@@ -147,9 +147,7 @@ export default function NumbersCol() {
               suffix="+"
             />
           </p>
-          <p className="text-secondary pr-[10%] text-base uppercase">
-            đối tác đồng hành
-          </p>
+          <p className="text-secondary pr-[10%] text-base uppercase">{t("card3")}</p>
         </div>
         <div
           ref={setNumberCardRef}
@@ -169,9 +167,7 @@ export default function NumbersCol() {
             />
             000+
           </p>
-          <p className="text--blue-50 pr-[10%] text-base uppercase">
-            phụ huynh, học sinh trên toàn quốc
-          </p>
+          <p className="text--blue-50 pr-[10%] text-base uppercase">{t("card4")}</p>
         </div>
       </div>
     </section>

@@ -1,18 +1,24 @@
 "use client";
+import { useLocale, useTranslations } from "next-intl";
 
-import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { Link, usePathname, useRouter } from "@/i18n/navigation";
 
 export default function Header() {
+  const t = useTranslations("Header");
+  const locale = useLocale();
+  const pathname = usePathname();
+  const router = useRouter();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isHeaderVisible, setIsHeaderVisible] = useState(false);
+  const nextLocale = locale === "vi" ? "en" : "vi";
 
   const navLinks = [
-    { href: "/", label: "Home" },
-    { href: "/about", label: "About" },
-    { href: "/programs", label: "Programs" },
-    { href: "/contact", label: "Contact" },
+    { href: "/", label: t("nav.home") },
+    { href: "/about", label: t("nav.about") },
+    { href: "/programs", label: t("nav.programs") },
+    { href: "/contact", label: t("nav.contact") },
   ];
 
   useEffect(() => {
@@ -67,39 +73,51 @@ export default function Header() {
             <Link href="/" className="h-full font-semibold tracking-tight">
               <Image
                 src="/logo-blue-icon.png"
-                alt="Logo Yeo Vietnam"
+                alt={t("logoAlt")}
                 width={600}
                 height={600}
                 className="h-full w-auto object-cover object-center"
               />
             </Link>
 
-            <p className="text--blue-600 font-medium uppercase">YEO VIETNAM</p>
-            <button
-              type="button"
-              aria-label="Toggle menu"
-              aria-expanded={isMenuOpen}
-              aria-controls="header-nav-menu"
-              onClick={() => setIsMenuOpen((prev) => !prev)}
-              className="text--blue-600 hover:text--blue-700 relative flex h-8 w-8 items-center justify-center"
-            >
-              <span className="sr-only">Open navigation menu</span>
-              <span
-                className={`absolute h-0.5 w-5 rounded-full bg-current transition-transform duration-300 ${
-                  isMenuOpen ? "rotate-45" : "-translate-y-1.5"
-                }`}
-              />
-              <span
-                className={`absolute h-0.5 w-5 rounded-full bg-current transition-opacity duration-200 ${
-                  isMenuOpen ? "opacity-0" : "opacity-100"
-                }`}
-              />
-              <span
-                className={`absolute h-0.5 w-5 rounded-full bg-current transition-transform duration-300 ${
-                  isMenuOpen ? "-rotate-45" : "translate-y-1.5"
-                }`}
-              />
-            </button>
+            <p className="text--blue-600 font-medium uppercase">
+              {t("brand")}
+            </p>
+            <div className="flex items-center gap-1">
+              <button
+                type="button"
+                aria-label={t("switchLocale", { locale: nextLocale.toUpperCase() })}
+                onClick={() => router.replace(pathname, { locale: nextLocale })}
+                className="text--blue-600 hover:bg--blue-100 rounded px-2 py-1 text-xs font-semibold"
+              >
+                {nextLocale.toUpperCase()}
+              </button>
+              <button
+                type="button"
+                aria-label={t("toggleMenu")}
+                aria-expanded={isMenuOpen}
+                aria-controls="header-nav-menu"
+                onClick={() => setIsMenuOpen((prev) => !prev)}
+                className="text--blue-600 hover:text--blue-700 relative flex h-8 w-8 items-center justify-center"
+              >
+                <span className="sr-only">{t("openNavigationMenu")}</span>
+                <span
+                  className={`absolute h-0.5 w-5 rounded-full bg-current transition-transform duration-300 ${
+                    isMenuOpen ? "rotate-45" : "-translate-y-1.5"
+                  }`}
+                />
+                <span
+                  className={`absolute h-0.5 w-5 rounded-full bg-current transition-opacity duration-200 ${
+                    isMenuOpen ? "opacity-0" : "opacity-100"
+                  }`}
+                />
+                <span
+                  className={`absolute h-0.5 w-5 rounded-full bg-current transition-transform duration-300 ${
+                    isMenuOpen ? "-rotate-45" : "translate-y-1.5"
+                  }`}
+                />
+              </button>
+            </div>
           </div>
           <nav
             id="header-nav-menu"

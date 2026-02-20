@@ -1,6 +1,6 @@
 "use client";
+import { useTranslations } from "next-intl";
 import FeedbackCard from "./FeedbackCard";
-import { feedback } from "./feedback/Feedback";
 import { useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -10,13 +10,58 @@ import RevealTitle from "./ui/RevealTItle";
 
 gsap.registerPlugin(ScrollTrigger);
 
+type FeedbackItem = {
+  img: string;
+  shortText: string;
+  longText: string;
+  name: string;
+  className?: string;
+  quoteClassName?: string;
+};
+
 export default function Testimonials() {
+  const t = useTranslations("Testimonials");
   const testimonialsRef = useRef<HTMLElement | null>(null);
-  const TestimonialsTitleRef = useRef<HTMLDivElement | null>(null);
+  const testimonialsTitleRef = useRef<HTMLDivElement | null>(null);
   const cardRefs = useRef<Array<HTMLDivElement | null>>([]);
 
+  const feedback: FeedbackItem[] = [
+    {
+      img: "",
+      shortText: t("cards.0.shortText"),
+      longText: t("cards.0.longText"),
+      name: t("cards.0.name"),
+      className: "bg--blue-100",
+      quoteClassName: "text--blue-600",
+    },
+    {
+      img: "",
+      shortText: t("cards.1.shortText"),
+      longText: t("cards.1.longText"),
+      name: t("cards.1.name"),
+      className: "bg--orange-100",
+      quoteClassName: "text--orange-600",
+    },
+    {
+      img: "",
+      shortText: t("cards.2.shortText"),
+      longText: t("cards.2.longText"),
+      name: t("cards.2.name"),
+      className: "bg--red-100",
+      quoteClassName: "text--red-600",
+    },
+    {
+      img: "",
+      shortText: t("cards.3.shortText"),
+      longText: t("cards.3.longText"),
+      name: t("cards.3.name"),
+      className: "bg--blue-100",
+      quoteClassName: "text--blue-600",
+    },
+  ];
+
   useGSAP(() => {
-    if (!testimonialsRef.current || !TestimonialsTitleRef.current) return;
+    if (!testimonialsRef.current || !testimonialsTitleRef.current) return;
 
     const validCards = cardRefs.current.filter((card): card is HTMLDivElement =>
       Boolean(card),
@@ -29,14 +74,12 @@ export default function Testimonials() {
       start: "top top",
       endTrigger: lastCard,
       end: "top top",
-      pin: TestimonialsTitleRef.current,
+      pin: testimonialsTitleRef.current,
       pinSpacing: false,
     });
 
     validCards.forEach((card, index) => {
-      const cardContent = card.querySelector(
-        ".feedback-card",
-      ) as HTMLElement | null;
+      const cardContent = card.querySelector(".feedback-card") as HTMLElement | null;
       const rotateTarget = cardContent ?? card;
 
       ScrollTrigger.create({
@@ -78,12 +121,14 @@ export default function Testimonials() {
     <section id="testimonials" ref={testimonialsRef}>
       <div className="site-container flex h-screen items-center justify-center">
         <h2
-          ref={TestimonialsTitleRef}
+          ref={testimonialsTitleRef}
           className="text-h1 text-secondary py-site-margin text-center"
         >
           <RevealTitle>
-            <span className="text-primary italic"> niềm tin </span>
-            <br /> từ cộng đồng
+            {t.rich("title", {
+              em: (chunks) => <span className="text-primary italic">{chunks}</span>,
+              br: () => <br />,
+            })}
           </RevealTitle>
         </h2>
       </div>
@@ -100,7 +145,11 @@ export default function Testimonials() {
       ))}
       <div className="flex flex-col items-center py-[15vh]">
         <p className="text-h3 leading-head text-secondary max-w-sm py-12 text-center uppercase md:max-w-3xl">
-          <RevealTitle>đối tác của <span className="text-primary italic">YEO</span> vietnam</RevealTitle>
+          <RevealTitle>
+            {t.rich("partnersTitle", {
+              em: (chunks) => <span className="text-primary italic">{chunks}</span>,
+            })}
+          </RevealTitle>
         </p>
         <PartnerLogos
           direction="left"
@@ -130,15 +179,15 @@ export default function Testimonials() {
             },
             {
               src: "/schools/ltv.jpg",
-              alt: "Trường Lương Thế Vinh",
+              alt: "Luong The Vinh School",
             },
             {
               src: "/schools/neu.png",
-              alt: "Đại học Kinh tế Quốc dân",
+              alt: "National Economics University",
             },
             {
               src: "/schools/naem.png",
-              alt: "Học viện quản lý giáo dục",
+              alt: "National Academy of Education Management",
             },
             {
               src: "/schools/vinschool.png",
@@ -171,7 +220,7 @@ export default function Testimonials() {
             },
             {
               src: "/business/hoahoctro.jpg",
-              alt: "Hoa Học Trò",
+              alt: "Hoa Hoc Tro",
             },
             {
               src: "/business/vch.jpg",
@@ -187,7 +236,7 @@ export default function Testimonials() {
             },
             {
               src: "/business/tuoitre.png",
-              alt: "Báo Tuổi Trẻ",
+              alt: "Tuoi Tre Newspaper",
             },
             {
               src: "/schools/waikato.jpg",

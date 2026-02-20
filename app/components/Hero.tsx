@@ -8,6 +8,7 @@ import CircularGallery from "./CircularGallery";
 import { HOLD_DURATION_S } from "@/app/components/IntroOverlay";
 import { ANIMATION_DURATION_S } from "@/app/components/IntroOverlay";
 import { SplitText } from "gsap/SplitText";
+import { useTranslations } from "next-intl";
 
 const items = [
   { image: "/hero-1.jpg", text: "" },
@@ -20,6 +21,8 @@ const items = [
   { image: "/hero-8.jpg", text: "" },
 ];
 export default function Hero() {
+  const t = useTranslations("Hero");
+
   const heroRef = useRef<HTMLElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const headingRef = useRef<HTMLDivElement | null>(null);
@@ -27,7 +30,7 @@ export default function Hero() {
   const delayDuration = HOLD_DURATION_S + ANIMATION_DURATION_S - 0.5;
 
   useGSAP(() => {
-    if (!headingRef.current || !subheadingRef) return;
+    if (!headingRef.current || !subheadingRef.current) return;
 
     gsap.registerPlugin(ScrollTrigger, SplitText);
 
@@ -62,7 +65,10 @@ export default function Hero() {
         "<0.1",
       );
 
-    return () => headingSplit.revert();
+    return () => {
+      headingSplit.revert();
+      subheadingSplit.revert();
+    };
   }, []);
 
   useGSAP(() => {
@@ -101,7 +107,7 @@ export default function Hero() {
       >
         {" "}
         <p className="text-secondary text-center text-base font-medium uppercase">
-          Cùng kiến tạo
+          {t("label")}
         </p>
         <Image
           src="/logo-blue.png"
@@ -111,22 +117,24 @@ export default function Hero() {
           className="mb-4 aspect-square h-20 w-20"
         />{" "}
         <p ref={subheadingRef} className="text-primary text-h5 uppercase">
-          Vì thế hệ trẻ Việt Nam
+          {t("subheading")}
         </p>
         <h1
           ref={headingRef}
           className="text-display text--blue-600 text-center leading-none tracking-tight uppercase"
         >
-          vươn mình rực rỡ
+          {t("heading")}
         </h1>
-        <div className="flex items-center p-2 rounded-xl shadow-sm gap-2 pl-4 mt-2 bg-white">
-          <p className="text-xs uppercase text-primary">giá trị quỹ YEO VIETNAM</p>
-          <div className="bg--blue-600 px-4 py-2 rounded-lg text-sm text-white">
+        <div className="mt-2 flex items-center gap-2 rounded-xl bg-white p-2 pl-4 shadow-sm">
+          <p className="text-primary text-xs uppercase">
+            {t("fundText")}
+          </p>
+          <div className="bg--blue-600 rounded-lg px-4 py-2 text-sm text-white">
             <p>15,000,000</p>
           </div>
         </div>
       </div>{" "}
-      <div className="h-[35svh] xl:h-[80vh] relative -mt-[10vh]">
+      <div className="relative -mt-[10vh] h-[35svh] xl:h-[80vh]">
         <CircularGallery
           items={items}
           textColor="#ffffff"

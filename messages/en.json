@@ -1,0 +1,67 @@
+{
+  "Header": {
+    "brand": "YEO VIETNAM",
+    "logoAlt": "Yeo Vietnam logo",
+    "toggleMenu": "Toggle menu",
+    "switchLocale": "Switch language to {locale}",
+    "openNavigationMenu": "Open navigation menu",
+    "nav": {
+      "home": "Home",
+      "about": "About",
+      "programs": "Programs",
+      "contact": "Contact"
+    }
+  },
+  "Hero": {
+    "label": "Co-creating together",
+    "subheading": "For Vietnam's young generation",
+    "heading": "to rise and shine",
+    "fundText": "Current value of the YEO VIETNAM fund"
+  },
+  "About": {
+    "title": "About <em>YEO</em><br></br>VIETNAM",
+    "p1": "<strong>Youth Empowerment Organization (YEO) Vietnam</strong> is an organization dedicated to guiding and developing the potential of Vietnam's youth.",
+    "p2": "<strong>YEO Vietnam</strong> is on a mission to build a modern educational ecosystem where every individual is empowered to understand themselves and confidently shape their future."
+  },
+  "Numbers": {
+    "card1": "CAREER ORIENTATION PROGRAMS",
+    "card2": "followers across platforms",
+    "card3": "partner organizations",
+    "card4": "parents and students nationwide"
+  },
+  "Testimonials": {
+    "title": "<em>Trust</em><br></br>from the community",
+    "partnersTitle": "Partners of <em>YEO</em> Vietnam",
+    "cards": [
+      {
+        "shortText": "I told my mom that investing in this program for me was absolutely worth it.",
+        "longText": "I made many new friends, received guidance from young yet professional mentors, became more confident in presenting, and gradually discovered my strengths. My mom was truly impressed and grateful to YEO Vietnam for giving me a meaningful summer and helping me orient my path for the future.",
+        "name": "Ms. Vu Cam Khuyen"
+      },
+      {
+        "shortText": "I hope to meet the mentors and friends again next summer.",
+        "longText": "After 8 days at YEO Vietnam's Summer Starter camp, I had real-world exposure to many careers I had only heard about before. The farewell day was emotional and full of gratitude for the mentors and classmates.",
+        "name": "Ms. Thuy Nguyen"
+      },
+      {
+        "shortText": "Thank you, YEO Vietnam, for giving our children a meaningful and memorable summer.",
+        "longText": "Sending my child to YEO Vietnam's summer camp was truly the right decision. Even with a packed schedule, my child stayed excited, became more confident, and matured noticeably. My child told me the trip was worth it and wanted to continue joining impactful experiential programs like this.",
+        "name": "Ms. Thuy Nguyen"
+      },
+      {
+        "shortText": "I feel more confident about the road ahead and more motivated.",
+        "longText": "I had joined another career orientation class before, but I still felt uncertain and did not fully understand myself. After listening to YEO's shared knowledge and experiences, I gained much more clarity and motivation. Thank you to the YEO team for organizing such an excellent sharing session.",
+        "name": "Ms. Thuy Nguyen"
+      }
+    ]
+  },
+  "Fund": {
+    "title": "YEO <em>Fund</em> Vietnam",
+    "totalLabel": "total fund value",
+    "lastUpdated": "last updated on Feb 14",
+    "p1": "The YEO Vietnam Fund was founded through the partnership of three brands: Nerd.box, Contrast, and Ru:tine, via a 500 VND contribution mechanism on each invoice. The fund was created with the mission of empowering and opening development opportunities for Vietnam's young generation.",
+    "p2": "The fund focuses on key education initiatives: From Beans to Dreams, Summer Camp - Career Orientation, Vietnam High School Business Case Competition, and the \"Chao Safe\" talkshow series. From small contributions, the YEO Vietnam Fund is steadily building a generation that is confident, resilient, and ready to shape the future.",
+    "logoAlt": "Yeo Vietnam logo",
+    "brand": "Yeo Vietnam"
+  }
+}
