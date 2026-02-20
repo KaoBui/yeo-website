@@ -1,0 +1,67 @@
+{
+  "Header": {
+    "brand": "YEO VIETNAM",
+    "logoAlt": "Logo Yeo Vietnam",
+    "toggleMenu": "Mở hoặc đóng menu",
+    "switchLocale": "Chuyển ngôn ngữ sang {locale}",
+    "openNavigationMenu": "Mở menu điều hướng",
+    "nav": {
+      "home": "Trang chủ",
+      "about": "Giới thiệu",
+      "programs": "Chương trình",
+      "contact": "Liên hệ"
+    }
+  },
+  "Hero": {
+    "label": "Cùng kiến tạo",
+    "subheading": "Vì thế hệ trẻ Việt Nam",
+    "heading": "vươn mình rực rỡ",
+    "fundText": "Giá trị hiện tại quỹ YEO VIETNAM"
+  },
+  "About": {
+    "title": "Về <em>YEO</em><br></br>VIETNAM",
+    "p1": "<strong>Youth Empowerment Organization (YEO) Vietnam</strong> là Tổ chức Định hướng và Phát triển Tiềm năng trẻ Việt Nam.",
+    "p2": "<strong>YEO Vietnam</strong> mang sứ mệnh xây dựng một hệ sinh thái giáo dục hiện đại, nơi mỗi cá nhân đều được trao quyền để thấu hiểu bản thân và tự tin kiến tạo tương lai."
+  },
+  "Numbers": {
+    "card1": "CHƯƠNG TRÌNH HƯỚNG NGHIỆP",
+    "card2": "người theo dõi trên các nền tảng",
+    "card3": "đối tác đồng hành",
+    "card4": "phụ huynh, học sinh trên toàn quốc"
+  },
+  "Testimonials": {
+    "title": "<em>niềm tin</em><br></br>từ cộng đồng",
+    "partnersTitle": "Đối tác của <em>YEO</em> Vietnam",
+    "cards": [
+      {
+        "shortText": "Con đã nói với mẹ rằng việc mẹ đầu tư cho con tham gia là hoàn toàn xứng đáng.",
+        "longText": "Con được làm quen với nhiều bạn mới, được các anh chị mentor trẻ nhưng rất chuyên nghiệp đồng hành, tự tin thuyết trình và dần nhận ra sở trường của bản thân. Mẹ thực sự ấn tượng và cảm ơn YEO Việt Nam vì đã mang đến cho con một mùa hè ý nghĩa, giúp con sớm định hướng con đường phù hợp cho tương lai.",
+        "name": "Cô Vũ Cẩm Khuyên"
+      },
+      {
+        "shortText": "Hy vọng sẽ gặp lại các anh chị và các bạn vào mùa hè năm sau nhé.",
+        "longText": "Kết thúc 8 ngày tham gia trại hè Summer Starter của YEO Việt Nam, con đã có những trải nghiệm thực tế với những ngành nghề mà trước đây mới chỉ nghe nói chứ chưa hình dung nó như thế nào. Buổi chiều của ngày chia tay đầy tiếc nuối và xúc động với các anh chị mentor và các bạn trại viên trong lớp.",
+        "name": "Cô Thủy Nguyễn"
+      },
+      {
+        "shortText": "Cảm ơn YEO Việt Nam vì đã mang đến cho các con một mùa hè bổ ích và đáng nhớ.",
+        "longText": "Cho con tham gia trại hè của YEO Việt Nam thực sự là một lựa chọn đúng đắn. Dù lịch hoạt động khá dày, con vẫn rất hào hứng, tự tin và trưởng thành hơn rõ rệt. Con còn nói với tôi rằng chuyến đi này rất xứng đáng và mong muốn tiếp tục tham gia những chương trình trải nghiệm ý nghĩa như vậy trong tương lai.",
+        "name": "Cô Thủy Nguyễn"
+      },
+      {
+        "shortText": "Em cảm thấy tự tin hơn về con đường phía trước và có thêm động lực cho bản thân.",
+        "longText": "Em đã từng tham gia một lớp định hướng nghề nghiệp khác, nhưng vẫn cảm thấy mông lung và chưa hiểu rõ bản thân mình. Nhưng sau khi nghe những kiến thức và trải nghiệm được chia sẻ tại YEO, em cảm thấy rõ ràng hơn và có thêm động lực cho bản thân. Em cảm ơn các anh chị ở YEO đã tổ chức một buổi chia sẻ tuyệt vời như vậy ạ.",
+        "name": "Cô Thủy Nguyễn"
+      }
+    ]
+  },
+  "Fund": {
+    "title": "quỹ <em>YEO</em> Vietnam",
+    "totalLabel": "tổng giá trị quỹ",
+    "lastUpdated": "cập nhật lần cuối ngày 14/2",
+    "p1": "Quỹ YEO Vietnam được thành lập từ sự đồng hành của ba thương hiệu Nerd.box, Contrast và Ru:tine, thông qua cơ chế đóng góp 500đ trên mỗi hóa đơn. Quỹ ra đời với sứ mệnh trao quyền và mở ra cơ hội phát triển cho thế hệ trẻ Việt Nam.",
+    "p2": "Quỹ tập trung triển khai các dự án giáo dục nổi bật: From Beans to Dreams, Summer Camp - Định hướng nghề nghiệp, Vietnam High School Business Case Competition, và chuỗi talkshow \"Chào Safe\". Từ những đóng góp nhỏ, Quỹ YEO Vietnam đang từng bước xây dựng một thế hệ trẻ tự tin - bản lĩnh - sẵn sàng kiến tạo tương lai.",
+    "logoAlt": "Logo Yeo Vietnam",
+    "brand": "Yeo Vietnam"
+  }
+}
