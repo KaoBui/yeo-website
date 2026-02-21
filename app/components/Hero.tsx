@@ -116,7 +116,7 @@ export default function Hero() {
           height={100}
           className="mb-4 aspect-square h-20 w-20"
         />{" "}
-        <p ref={subheadingRef} className="text-primary text-h5 uppercase">
+        <p ref={subheadingRef} className="text-primary text-h5 uppercase text-center leading-head">
           {t("subheading")}
         </p>
         <h1
@@ -126,9 +126,7 @@ export default function Hero() {
           {t("heading")}
         </h1>
         <div className="mt-2 flex items-center gap-2 rounded-xl bg-white p-2 pl-4 shadow-sm">
-          <p className="text-primary text-xs uppercase">
-            {t("fundText")}
-          </p>
+          <p className="text-primary text-xs uppercase">{t("fundText")}</p>
           <div className="bg--blue-600 rounded-lg px-4 py-2 text-sm text-white">
             <p>15,000,000</p>
           </div>

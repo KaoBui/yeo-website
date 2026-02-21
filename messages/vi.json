@@ -29,6 +29,74 @@
     "card3": "đối tác đồng hành",
     "card4": "phụ huynh, học sinh trên toàn quốc"
   },
+  "Projects": {
+    "title": "Dự án của<br></br><em>YEO VIETNAM</em>",
+    "buttonText": "tìm hiểu thêm",
+    "close": "Đóng",
+    "project": {
+      "title": "From Beans to Dreams",
+      "subtitle": "dự án",
+      "imageAlt": "Ảnh bìa From Beans to Dreams",
+      "paragraphs": [
+        "YEO Vietnam tin rằng mỗi em nhỏ đều mang trong mình một \"hạt giống nghề nghiệp\" - đó là tiềm năng, ước mơ và khả năng riêng biệt của mỗi em. Nhưng giống như một hạt giống trong tự nhiên, không phải hạt nào cũng có đủ điều kiện để nảy mầm.",
+        "Trong dự án này, YEO Vietnam sẽ tập trung xây dựng, cải tạo trường học, nhà vệ sinh, nước sạch cho các điểm trường còn nhiều hạn chế. Ngoài ra, YEO Vietnam cũng sẽ tập trung phát triển chương trình định hướng nghề nghiệp, là thế mạnh của YEO Vietnam để định hướng cho các em học sinh có những bước đi rõ ràng hơn cho tương lai, biết phát huy điểm mạnh kinh tế địa phương với những ngành và trường học phù hợp."
+      ]
+    },
+    "summer-camp": {
+      "title": "Summer Camp",
+      "subtitle": "trại hè hướng nghiệp",
+      "imageAlt": "Ảnh bìa Summer Camp",
+      "paragraphs": [
+        "Summer Camp là trại hè trải nghiệm nghề nghiệp do YEO Vietnam tổ chức vào mùa hè hằng năm. Với mục tiêu đem tới cho các em học sinh mùa hè ý nghĩa với những trải nghiệm chuyên sâu trong các ngành nghề mà các em quan tâm.",
+        "Tại Summer Camp, các bạn học sinh tham gia sẽ có cơ hội tham gia vào những hoạt động thú vị của trại hè do chính đội ngũ nhân lực của YEO Vietnam lên ý tưởng và tổ chức."
+      ]
+    },
+    "vhbc": {
+      "title": "Business Case Competition",
+      "subtitle": "cuộc thi",
+      "imageAlt": "Ảnh bìa VHBC",
+      "paragraphs": [
+        "VHBC - Vietnam High School Business Case Competition là cuộc thi giải quyết tình huống kinh doanh đầu tiên tại Việt Nam dành cho học sinh THPT, được tổ chức bởi The Trainee Club - YEO Vietnam - Student Consulting Group.",
+        "Cuộc thi được xây dựng với mục tiêu tạo ra một môi trường học tập và trải nghiệm kinh doanh chuyên sâu cho các bạn trẻ có đam mê lĩnh vực Business, giúp học sinh phát triển các kỹ năng thực tiễn theo chuẩn doanh nghiệp, đồng thời hỗ trợ các bạn trong hành trình định hướng nghề nghiệp, chuẩn bị nền tảng vững chắc cho thế hệ nhà lãnh đạo kinh doanh tương lai."
+      ]
+    },
+    "talkshow": {
+      "title": "Pha chuyện",
+      "subtitle": "talkshow",
+      "imageAlt": "Ảnh bìa Talkshow",
+      "paragraphs": [
+        "Pha Chuyện là chuỗi talkshow được tổ chức tại nhiều trường Đại học trên toàn quốc, tạo không gian kết nối trực tiếp giữa sinh viên và các diễn giả - những người đi trước giàu kinh nghiệm. Tại đây, sinh viên có cơ hội cùng nhau \"Pha chuyện\" xoay quanh những vấn đề thực tế mà các bạn đang đối diện trong quá trình học tập, phát triển bản thân và chuẩn bị bước vào thị trường lao động.",
+        "Thông qua Pha Chuyện, YEO Vietnam mong muốn trở thành cầu nối đồng hành cùng sinh viên trên nhiều chặng đường khác nhau, giúp các bạn có sự chuẩn bị vững vàng về tư duy, kỹ năng và định hướng nghề nghiệp trước khi chính thức bước vào hành trình \"Người trẻ đi làm\"."
+      ]
+    }
+  },
+  "Rewind": {
+    "title": "<em>hành trình</em> đã qua",
+    "ss19": {
+      "text": "Summer Starter 2019: F&B Business là chương trình trại hè trải nghiệm nghề nghiệp đầu tiên của YEO Vietnam, tập trung vào lĩnh vực Ẩm thực và Đồ uống (F&B), với hơn 20 bạn học sinh trong thời gian 7 ngày.",
+      "alt": "Trại hè hướng nghiệp Summer Starter 2019"
+    },
+    "ss20": {
+      "text": "Summer Starter 2020: How I Met My Future là chương trình trại hè trải nghiệm và định hướng nghề nghiệp dành cho học sinh THCS, tập trung vào 5 nhóm ngành chính: Kinh doanh, Truyền thông, Quản trị dịch vụ, Công nghệ và Nghệ thuật.",
+      "alt": "Trại hè hướng nghiệp Summer Starter 2020"
+    },
+    "sp21": {
+      "text": "Career Starter Spring Camp là trại xuân hướng nghiệp dành cho học sinh cấp 3 được tổ chức vào mùa xuân 2021, tại ĐH Swinburne, Hà Nội.",
+      "alt": "Chương trình hướng nghiệp mùa xuân 2021"
+    },
+    "ss22": {
+      "text": "Career Starter 2022 là trại hè hướng nghiệp dành cho học sinh cấp 3 tại ĐH Swinburne, Hà Nội và TP.HCM. Tham gia 7 ngày trại hè, các bạn học sinh có cơ hội tìm hiểu về các nhóm ngành kinh tế, truyền thông và công nghệ - IT.",
+      "alt": "Chương trình hướng nghiệp mùa xuân 2022"
+    },
+    "ivy": {
+      "text": "YEO đồng hành cùng IVY PREP tổ chức chương trình Hướng nghiệp Career Glow Up, nơi các bạn học sinh được trải nghiệm các buổi học định hướng và các hoạt động như Thuyết trình về Vision Board cá nhân, Viết thư gửi bản thân",
+      "alt": "Career Glow Up 2022"
+    },
+    "vhbc": {
+      "text": "Là cuộc thi Business Case đầu tiên dành cho học sinh cấp 3, được tổ chức bởi The Trainee Club - YEO Vietnam - Student Consulting Group. Cuộc thi ra đời nhằm tạo ra một sân chơi để tìm kiếm những tài năng trẻ và trang bị những kỹ năng cần thiết cho các bạn học sinh cấp 3 đang có mong muốn theo đuổi nhóm ngành Kinh tế - Kinh doanh.",
+      "alt": "VHBC"
+    }
+  },
   "Testimonials": {
     "title": "<em>niềm tin</em><br></br>từ cộng đồng",
     "partnersTitle": "Đối tác của <em>YEO</em> Vietnam",
@@ -63,5 +131,11 @@
     "p2": "Quỹ tập trung triển khai các dự án giáo dục nổi bật: From Beans to Dreams, Summer Camp - Định hướng nghề nghiệp, Vietnam High School Business Case Competition, và chuỗi talkshow \"Chào Safe\". Từ những đóng góp nhỏ, Quỹ YEO Vietnam đang từng bước xây dựng một thế hệ trẻ tự tin - bản lĩnh - sẵn sàng kiến tạo tương lai.",
     "logoAlt": "Logo Yeo Vietnam",
     "brand": "Yeo Vietnam"
+  },
+  "Footer": {
+    "text": "đồng hành cùng<br></br> thế hệ trẻ việt nam",
+    "menu-item-1": "Liên hệ",
+    "menu-item-2": "Theo dõi YEO VIETNAM",
+    "footer-rights": "YEO. Tất cả quyền được bảo lưu."
   }
 }

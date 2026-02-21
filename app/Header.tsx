@@ -11,7 +11,6 @@ export default function Header() {
   const pathname = usePathname();
   const router = useRouter();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isHeaderVisible, setIsHeaderVisible] = useState(false);
   const nextLocale = locale === "vi" ? "en" : "vi";
 
   const navLinks = [
@@ -35,21 +34,6 @@ export default function Header() {
     lenis.start();
   }, [isMenuOpen]);
 
-  useEffect(() => {
-    const onScroll = () => {
-      const showAfter = window.innerHeight * 0.15;
-      setIsHeaderVisible(window.scrollY >= showAfter);
-    };
-
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
-    };
-  }, []);
-
   return (
     <header className="flex justify-center">
       <button
@@ -63,13 +47,9 @@ export default function Header() {
             : "pointer-events-none opacity-0"
         }`}
       />
-      <div
-        className={`site-container fixed top-4 z-100 mx-auto w-full max-w-md transition-transform duration-500 ease-out ${
-          isHeaderVisible ? "translate-y-0" : "-translate-y-[140%]"
-        }`}
-      >
+      <div className="site-container fixed top-4 z-100 mx-auto w-full max-w-md">
         <div className="bg-white overflow-hidden rounded-xl mx-4 lg:mx-0 shadow-sm">
-          <div className="flex h-12 items-center justify-between px-4 py-2">
+          <div className="relative flex h-12 items-center justify-between px-4 py-2">
             <Link href="/" className="h-full font-semibold tracking-tight">
               <Image
                 src="/logo-blue-icon.png"
@@ -80,7 +60,7 @@ export default function Header() {
               />
             </Link>
 
-            <p className="text--blue-600 font-medium uppercase">
+            <p className="text--blue-600 pointer-events-none absolute left-1/2 -translate-x-1/2 font-medium uppercase">
               {t("brand")}
             </p>
             <div className="flex items-center gap-1">
@@ -88,7 +68,7 @@ export default function Header() {
                 type="button"
                 aria-label={t("switchLocale", { locale: nextLocale.toUpperCase() })}
                 onClick={() => router.replace(pathname, { locale: nextLocale })}
-                className="text--blue-600 hover:bg--blue-100 rounded px-2 py-1 text-xs font-semibold"
+                className="text--blue-600 hover:bg--blue-100 cursor-pointer rounded px-2 py-1 text-xs font-semibold"
               >
                 {nextLocale.toUpperCase()}
               </button>

@@ -3,13 +3,32 @@ import Image from "next/image";
 import RewindCard from "@/app/components/rewind/RewindCard";
 import { rewindCards } from "@/app/components/rewind/Rewind";
 import NumberFlow from "@number-flow/react";
-import { useRef, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { SplitText } from "gsap/SplitText";
+import { useTranslations } from "next-intl";
 
 export default function Rewind() {
+  const t = useTranslations("Rewind");
+  const rewindKeys = ["ss19", "ss20", "sp21", "ss22", "ivy", "vhbc"] as const;
+  const localizedRewindCards = useMemo(
+    () =>
+      rewindCards.map((card, index) => {
+        const key = rewindKeys[index];
+        if (!key) return card;
+        return {
+          ...card,
+          projectDescription: t(`${key}.text`),
+          image: {
+            ...card.image,
+            alt: t(`${key}.alt`),
+          },
+        };
+      }),
+    [t],
+  );
   const rewindTitleRef = useRef<HTMLDivElement | null>(null);
   const rewindRef = useRef<HTMLElement | null>(null);
   const rewindPinRef = useRef<HTMLDivElement | null>(null);
@@ -19,7 +38,7 @@ export default function Rewind() {
   const rewindCardsRef = useRef<HTMLDivElement | null>(null);
   const cardItemRefs = useRef<Array<HTMLDivElement | null>>([]);
   const [activeYear, setActiveYear] = useState<number>(
-    Number.parseInt(rewindCards[0]?.date ?? "2000", 10) || 2000,
+    Number.parseInt(localizedRewindCards[0]?.date ?? "2000", 10) || 2000,
   );
   const springEasing = `linear(0, 0.0019 0.48%, 0.008, 0.018 1.51%, 0.0324 2.06%, 0.0731 3.18%, 0.131 4.4%, 0.1881 5.43%, 0.261 6.62%, 0.5554 11.05%, 0.6806 13.04%, 0.7961 15.1%, 0.8901 17.06%, 0.9313, 0.968, 1.0002, 1.0281 21.04%, 1.0524, 1.0725 23.09%, 1.089 24.15%, 1.1019 25.25%, 1.113 26.66%, 1.1187 28.14%, 1.1192 29.71%, 1.1147 31.41%, 1.1078 32.83%, 1.0976 34.43%, 1.0415 41.66%, 1.0172 45.39%, 1.0068 47.44%, 0.9985 49.53%, 0.9925 51.65%, 0.9883 53.9%, 0.9859 56.92%, 0.9863 60.42%, 0.9975 73.75%, 1.001 80.97%, 1.0006 99.99%)`;
   const springDuration = 500;
@@ -174,7 +193,7 @@ export default function Rewind() {
           });
 
           const year = Number.parseInt(
-            rewindCards[activeIndex]?.date ?? "",
+            localizedRewindCards[activeIndex]?.date ?? "",
             10,
           );
           if (Number.isFinite(year)) {
@@ -223,13 +242,17 @@ export default function Rewind() {
         <div className="site-container flex h-screen grid-cols-12 gap-4 lg:grid">
           <div
             id="rewind-text"
-            className="pt-[10svh] xl:pt-site-margin col-start-1 col-end-5 flex h-screen w-full flex-col items-center gap-8 lg:items-start lg:justify-between"
+            className="xl:pt-site-margin col-start-1 col-end-5 flex h-screen w-full flex-col items-center gap-8 pt-[10svh] lg:items-start lg:justify-between"
           >
             <h2
               ref={rewindTitleRef}
               className="text-h1 text-center text-neutral-200 lg:text-left"
             >
-              <span className="text-white italic"> hành trình</span> đã qua
+              {t.rich("title", {
+                em: (chunks) => (
+                  <span className="text-white italic">{chunks}</span>
+                ),
+              })}
             </h2>
             <p className="text-display hidden text-right text-neutral-400 lg:block">
               <NumberFlow
@@ -294,7 +317,7 @@ export default function Rewind() {
                   onLoad={() => ScrollTrigger.refresh()}
                 />
               </div>
-              {rewindCards.map((card, index) => (
+              {localizedRewindCards.map((card, index) => (
                 <div
                   key={`${card.projectName}-${card.date}-${index}`}
                   ref={(el) => {

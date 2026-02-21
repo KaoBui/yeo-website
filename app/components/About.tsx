@@ -115,7 +115,7 @@ export default function About() {
   }, []);
 
   return (
-    <section ref={aboutRef} id="about" className="pt-[15vh]">
+    <section ref={aboutRef} id="about" className="pt-[15vh] overflow-x-clip">
       <div className="site-container flex h-full flex-col items-center justify-center gap-6">
         <h2
           ref={aboutTitleRef}

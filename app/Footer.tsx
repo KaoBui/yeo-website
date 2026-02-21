@@ -1,10 +1,13 @@
 import Image from "next/image";
 import yeoWhiteLogo from "@/public/yeo-white.svg";
+import { useTranslations } from "next-intl";
 
 export default function Footer() {
+  const t = useTranslations("Footer");
+
   return (
     <footer
-      className="relative h-[80vh]"
+      className="relative h-[80vh] select-none"
       style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
     >
       <div className="bg--blue-600 fixed bottom-0 h-[80vh] w-full">
@@ -16,13 +19,17 @@ export default function Footer() {
           className="absolute -right-1/10 h-[80vh] w-auto opacity-5"
         />
         <div className="site-container bottom-0 flex h-full flex-col justify-between py-4">
-          <p className="text-h1 leading-head pt-site-margin text-white uppercase">
-            đồng hành cùng <br></br> thế hệ trẻ việt nam
+          <p className="text-h1 leading-head pt-site-margin max-w-[24ch] text-white uppercase">
+            {t.rich("text", {
+              br: () => <br />,
+            })}
           </p>
           <div className="flex flex-col gap-8">
             <div className="flex flex-col gap-12 lg:flex-row">
               <div className="flex flex-col gap-6">
-                <p className="text--blue-200 text-sm uppercase">Liên hệ</p>
+                <p className="text--blue-200 text-sm uppercase">
+                  {t("menu-item-1")}
+                </p>
                 <ul className="space-y-2 text-base text-white">
                   <li>
                     <a href="">contact@yeo.vn</a>
@@ -34,7 +41,7 @@ export default function Footer() {
               </div>
               <div className="flex flex-col gap-6">
                 <p className="text--blue-200 text-sm uppercase">
-                  theo dõi yeo vietnam
+                  {t("menu-item-2")}
                 </p>
                 <ul className="space-y-2 text-base text-white">
                   <li>
@@ -47,7 +54,7 @@ export default function Footer() {
               </div>
             </div>
             <div className="text--blue-200 flex justify-between border-t border-neutral-50 pt-4 text-sm">
-              © {new Date().getFullYear()} YEO. All rights reserved.
+              © {new Date().getFullYear()} {t("footer-rights")}
               <p className="text-xs uppercase">
                 Website by{" "}
                 <a href="https://kaobui.com/" target="_blank">

@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect } from "react";
+import { useTranslations } from "next-intl";
 import type { ProjectData } from "./projects/project";
 import { FlipButton } from "./ui/FlipButton";
 
@@ -15,6 +16,7 @@ export default function ProjectOverlay({
   project,
   onClose,
 }: ProjectOverlayProps) {
+  const t = useTranslations("Projects");
   const images = project?.images ?? [];
   const rowImages = images.slice(0, 3);
 
@@ -50,20 +52,17 @@ export default function ProjectOverlay({
           />
 
           {/* Overlay container */}
-          <div className="fixed inset-0 z-[70] flex items-center justify-center p-4 sm:p-6">
+          <div className="fixed inset-0 z-[70] flex items-center justify-center p-4 sm:p-6 select-none">
             <motion.div
               layoutId={`project-card-${project.id}`}
-              className="relative flex h-[92vh] w-full max-w-7xl flex-col gap-6 overflow-hidden rounded-[40px] bg-neutral-100 p-3 sm:p-4"
+              className="relative flex h-[92vh] w-full max-w-7xl flex-col items-center justify-between gap-6 overflow-hidden rounded-[40px] bg-neutral-100 p-3 sm:p-4"
               transition={{ type: "spring", stiffness: 260, damping: 28 }}
               onClick={(e) => e.stopPropagation()}
             >
               {/* Image row */}
-              <div className="img-container grid flex-1 grid-cols-1 overflow-hidden rounded-[32px] shadow-[0_4px_50px_rgba(0,0,0,0.2)] sm:grid-cols-3">
+              <div className="img-container grid h-3/5 min-h-[220px] w-full grid-cols-1 overflow-hidden rounded-[32px] shadow-[0_4px_50px_rgba(0,0,0,0.2)] sm:grid-cols-3">
                 {rowImages.map((src, i) => (
-                  <div
-                    key={`${project.id}-${src}-${i}`}
-                    className="relative min-h-[220px]"
-                  >
+                  <div key={`${project.id}-${src}-${i}`} className="relative">
                     <Image
                       src={src}
                       alt={`${project.imageAlt} ${i + 1}`}
@@ -79,7 +78,7 @@ export default function ProjectOverlay({
               {/* Text */}
               <div className="flex w-full flex-col items-center justify-end gap-4 px-0 md:px-6">
                 {/* Header */}
-                <div className="flex w-full flex-col items-start gap-2 px-1 md:flex-row md:items-end md:gap-4">
+                <div className="flex w-full flex-col items-start gap-2 px-1 md:flex-row md:items-end md:justify-center md:gap-4">
                   <p className="text-md text-tertiary uppercase">
                     {project.subtitle}
                   </p>
@@ -96,13 +95,13 @@ export default function ProjectOverlay({
                     {project.paragraphs[1]}
                   </p>
                 </div>
-                <div>
-                  <FlipButton
-                    onClick={onClose}
-                    frontText="Close"
-                    backText="Close"
-                  />
-                </div>
+              </div>
+              <div>
+                <FlipButton
+                  onClick={onClose}
+                  frontText={t("close")}
+                  backText={t("close")}
+                />
               </div>
             </motion.div>
           </div>

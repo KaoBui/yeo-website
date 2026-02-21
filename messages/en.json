@@ -29,6 +29,74 @@
     "card3": "partner organizations",
     "card4": "parents and students nationwide"
   },
+  "Projects": {
+    "title": "YEO VIETNAM<br></br><em>Projects</em>",
+    "buttonText": "Learn more",
+    "close": "Close",
+    "project": {
+      "title": "From Beans to Dreams",
+      "subtitle": "project",
+      "imageAlt": "From Beans to Dreams cover",
+      "paragraphs": [
+        "YEO Vietnam believes every child carries a unique \"career seed\" within: their potential, dreams, and individual abilities. But just like a seed in nature, not every seed has the conditions needed to sprout.",
+        "In this project, YEO Vietnam focuses on building and upgrading schools, restrooms, and clean water systems for underserved school sites. In parallel, YEO also delivers career orientation programs, helping students make clearer decisions for their futures and connect local economic strengths with suitable majors and schools."
+      ]
+    },
+    "summer-camp": {
+      "title": "Summer Camp",
+      "subtitle": "career orientation camp",
+      "imageAlt": "Summer camp cover",
+      "paragraphs": [
+        "Summer Camp is a career exploration camp organized annually by YEO Vietnam. It gives students a meaningful summer through hands-on experiences in fields they are interested in.",
+        "At Summer Camp, students join engaging activities designed and run by YEO Vietnam's own team, gaining practical exposure and stronger self-understanding for future choices."
+      ]
+    },
+    "vhbc": {
+      "title": "Business Case Competition",
+      "subtitle": "competition",
+      "imageAlt": "VHBC cover",
+      "paragraphs": [
+        "VHBC - Vietnam High School Business Case Competition is Vietnam's first business case-solving competition for high school students, organized by The Trainee Club - YEO Vietnam - Student Consulting Group.",
+        "The competition is designed to create a deep business learning environment for students passionate about business. It helps develop practical skills aligned with professional standards and supports career orientation for future business leaders."
+      ]
+    },
+    "talkshow": {
+      "title": "Pha Chuyen",
+      "subtitle": "talkshow",
+      "imageAlt": "Talkshow cover",
+      "paragraphs": [
+        "Pha Chuyen is a talkshow series hosted at universities nationwide, creating direct connections between students and experienced speakers. Students can openly discuss real challenges in learning, personal growth, and preparing for the job market.",
+        "Through Pha Chuyen, YEO Vietnam aims to be a long-term companion for students, helping them strengthen mindset, skills, and career direction before entering the world of work."
+      ]
+    }
+  },
+  "Rewind": {
+    "title": "<em>the journey</em> so far",
+    "ss19": {
+      "text": "Summer Starter 2019: F&B Business was YEO Vietnam's first career exploration summer camp, focused on Food and Beverage (F&B), with more than 20 students over 7 days.",
+      "alt": "Summer Starter 2019 career camp"
+    },
+    "ss20": {
+      "text": "Summer Starter 2020: How I Met My Future was a career exploration and orientation program for middle school students, focused on 5 major fields: Business, Media, Service Management, Technology, and Arts.",
+      "alt": "Summer Starter 2020 career camp"
+    },
+    "sp21": {
+      "text": "Career Starter Spring Camp was a spring career-orientation camp for high school students, held in spring 2021 at Swinburne University, Hanoi.",
+      "alt": "Spring career orientation program 2021"
+    },
+    "ss22": {
+      "text": "Career Starter 2022 was a summer career-orientation camp for high school students at Swinburne University in Hanoi and Ho Chi Minh City. During the 7-day camp, students explored key tracks in economics, media, and technology - IT.",
+      "alt": "Summer career orientation program 2022"
+    },
+    "ivy": {
+      "text": "YEO partnered with IVY PREP to organize the Career Glow Up orientation program, where students experienced orientation sessions and activities such as presenting their personal Vision Board and writing letters to their future selves.",
+      "alt": "Career Glow Up 2022"
+    },
+    "vhbc": {
+      "text": "This is the first Business Case competition for high school students, organized by The Trainee Club - YEO Vietnam - Student Consulting Group. The competition was created to provide a platform for discovering young talent and equipping high school students with essential skills for those pursuing Economics and Business.",
+      "alt": "VHBC"
+    }
+  },
   "Testimonials": {
     "title": "<em>Trust</em><br></br>from the community",
     "partnersTitle": "Partners of <em>YEO</em> Vietnam",
@@ -63,5 +131,11 @@
     "p2": "The fund focuses on key education initiatives: From Beans to Dreams, Summer Camp - Career Orientation, Vietnam High School Business Case Competition, and the \"Chao Safe\" talkshow series. From small contributions, the YEO Vietnam Fund is steadily building a generation that is confident, resilient, and ready to shape the future.",
     "logoAlt": "Yeo Vietnam logo",
     "brand": "Yeo Vietnam"
+  },
+  "Footer": {
+    "text": "Empowering the next generation of Vietnam.",
+    "menu-item-1": "Contact",
+    "menu-item-2": "Follow YEO VIETNAM",
+    "footer-rights": "YEO. Al rights reserved."
   }
 }

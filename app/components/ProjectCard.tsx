@@ -28,7 +28,7 @@ export default function ProjectCard({
     <motion.div
       layoutId={`project-card-${project.id}`}
       className={[
-        "flex h-[55vh] min-h-[500px] w-full flex-col items-center gap-6 rounded-[40px] bg-neutral-50 p-2 pb-6",
+        "flex h-[55vh] min-h-[500px] w-full flex-col items-center gap-6 rounded-[40px] bg-neutral-50 p-2 pb-6 select-none 2xl:h-[65vh]",
       ].join(" ")}
       transition={{ type: "spring", stiffness: 260, damping: 28 }}
     >
@@ -51,8 +51,6 @@ export default function ProjectCard({
           {project.title}
         </h3>
       </div>
-
-      {/* You can keep FlipButton, just wrap it so we control click/disabled */}
       <div
         className={isActive ? "" : "pointer-events-none opacity-50"}
         onClick={() => {
