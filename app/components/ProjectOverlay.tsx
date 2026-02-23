@@ -55,7 +55,7 @@ export default function ProjectOverlay({
           <div className="fixed inset-0 z-[70] flex items-center justify-center p-4 sm:p-6 select-none">
             <motion.div
               layoutId={`project-card-${project.id}`}
-              className="relative flex h-[92vh] w-full max-w-7xl flex-col items-center justify-between gap-6 overflow-hidden rounded-[40px] bg-neutral-100 p-3 sm:p-4"
+              className="relative flex h-[92vh] w-full max-w-7xl flex-col items-center justify-between gap-2 md:gap-6 overflow-hidden rounded-[40px] bg-neutral-100 p-3 sm:p-4"
               transition={{ type: "spring", stiffness: 260, damping: 28 }}
               onClick={(e) => e.stopPropagation()}
             >
@@ -76,13 +76,13 @@ export default function ProjectOverlay({
               </div>
 
               {/* Text */}
-              <div className="flex w-full flex-col items-center justify-end gap-4 px-0 md:px-6">
+              <div className="flex w-full flex-col items-center justify-end gap-2 md:gap-4 px-0 md:px-6">
                 {/* Header */}
-                <div className="flex w-full flex-col items-start gap-2 px-1 md:flex-row md:items-end md:justify-center md:gap-4">
+                <div className="flex w-full flex-col items-start gap-0 md:gap-2 px-1 md:flex-row md:items-end md:justify-center md:gap-4">
                   <p className="text-md text-tertiary uppercase">
                     {project.subtitle}
                   </p>
-                  <h3 className="text-h5 text-primary uppercase italic">
+                  <h3 className="text-xl md:text-h5 text-primary uppercase italic">
                     {project.title}
                   </h3>
                 </div>

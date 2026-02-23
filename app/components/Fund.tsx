@@ -68,7 +68,9 @@ export default function Fund() {
             <h2 className="text-h1 text-secondary mb-4 text-left lg:mb-12 lg:text-right">
               <RevealTitle>
                 {t.rich("title", {
-                  em: (chunks) => <span className="text-primary italic">{chunks}</span>,
+                  em: (chunks) => (
+                    <span className="text-primary italic">{chunks}</span>
+                  ),
                 })}
               </RevealTitle>
             </h2>
@@ -100,40 +102,37 @@ export default function Fund() {
             <p>{t("p2")}</p>
             <div className="flex w-full gap-8">
               <div className="flex flex-col items-start">
-                <div className="flex items-center justify-center rounded-2xl bg-neutral-50 p-2">
+                <div className="">
                   <Image
-                    src="/logo-blue.png"
+                    src="/rutine-logo.png"
                     alt={t("logoAlt")}
                     width={60}
                     height={60}
-                    className="h-auto w-full rounded-3xl object-cover object-center"
+                    className="h-auto w-20 object-contain"
                   />
                 </div>
-                <p>{t("brand")}</p>
               </div>
               <div className="flex flex-col items-start">
-                <div className="flex items-center justify-center rounded-2xl bg-neutral-50 p-2">
+                <div className="">
                   <Image
-                    src="/logo-blue.png"
+                    src="/contrast-logo.png"
                     alt={t("logoAlt")}
                     width={60}
                     height={60}
-                    className="h-auto w-full rounded-3xl object-cover object-center"
+                    className="h-auto w-20 object-contain"
                   />
                 </div>
-                <p>{t("brand")}</p>
               </div>
               <div className="flex flex-col items-start">
-                <div className="flex items-center justify-center rounded-2xl bg-neutral-50 p-2">
+                <div className="">
                   <Image
-                    src="/logo-blue.png"
+                    src="/nerdbox-logo.jpg"
                     alt={t("logoAlt")}
                     width={60}
                     height={60}
-                    className="h-auto w-full rounded-3xl object-cover object-center"
+                    className="h-auto w-20 object-contain"
                   />
                 </div>
-                <p>{t("brand")}</p>
               </div>
             </div>
           </div>

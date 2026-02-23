@@ -102,29 +102,53 @@ export default function Hero() {
     <section id="hero" ref={heroRef} className="relative mt-0">
       <div
         ref={containerRef}
-        className="site-container flex min-h-[65vh] flex-col items-center justify-center gap-2 pt-6 will-change-transform"
+        className="site-container flex min-h-[70vh] flex-col items-center justify-center gap-[5vh] pt-16 will-change-transform"
         style={{ willChange: "transform, filter" }}
       >
-        {" "}
-        <p className="text-secondary text-center text-base font-medium uppercase">
-          {t("label")}
-        </p>
-        <Image
-          src="/logo-blue.png"
-          alt="Logo Yeo Vietnam"
-          width={100}
-          height={100}
-          className="mb-4 aspect-square h-20 w-20"
-        />{" "}
-        <p ref={subheadingRef} className="text-primary text-h5 uppercase text-center leading-head">
-          {t("subheading")}
-        </p>
-        <h1
-          ref={headingRef}
-          className="text-display text--blue-600 text-center leading-none tracking-tight uppercase"
-        >
-          {t("heading")}
-        </h1>
+        <div className="flex flex-col gap-2">
+          <div className="flex justify-center gap-8">
+            <Image
+              src="/contrast-logo.png"
+              alt="Logo Yeo Vietnam"
+              width={1000}
+              height={1000}
+              className="h-auto w-20 object-contain"
+            />
+            <Image
+              src="/rutine-logo.png"
+              alt="Rutine Logo"
+              width={1000}
+              height={1000}
+              className="h-auto w-20"
+            />
+            <Image
+              src="/nerdbox-logo.jpg"
+              alt="Logo Yeo Vietnam"
+              width={1000}
+              height={1000}
+              className="h-auto w-20 object-contain"
+            />
+          </div>
+          <p className="text-secondary text-center text-sm font-medium uppercase">
+            {t.rich("label", {
+              em: (chunks) => <span className="text--blue-600">{chunks}</span>,
+            })}
+          </p>
+        </div>
+        <div className="flex flex-col gap-2">
+          <p
+            ref={subheadingRef}
+            className="text-primary text-h5 leading-head text-center uppercase"
+          >
+            {t("subheading")}
+          </p>
+          <h1
+            ref={headingRef}
+            className="text-display text--blue-600 text-center leading-none tracking-tight uppercase"
+          >
+            {t("heading")}
+          </h1>
+        </div>
         <div className="mt-2 flex items-center gap-2 rounded-xl bg-white p-2 pl-4 shadow-sm">
           <p className="text-primary text-xs uppercase">{t("fundText")}</p>
           <div className="bg--blue-600 rounded-lg px-4 py-2 text-sm text-white">
