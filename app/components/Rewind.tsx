@@ -301,7 +301,7 @@ export default function Rewind() {
                   all rights reserved.
                 </p>
                 <p className="text--orange-400 w-max -rotate-90 text-xs font-medium uppercase">
-                  portra400
+                  portra 400
                 </p>
                 <p className="text--orange-400 w-max -rotate-90 text-xs font-medium uppercase">
                   all rights reserved.
