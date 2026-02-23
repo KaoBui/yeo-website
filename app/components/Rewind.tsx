@@ -293,7 +293,7 @@ export default function Rewind() {
                   all rights reserved.
                 </p>
               </div>
-              <div className="w-site-margin absolute right-0 flex h-full flex-col items-center justify-around">
+              <div className="w-site-margin absolute right-0 flex h-full flex-col items-center justify-around text-sm">
                 <p className="text--orange-400 w-max -rotate-90 text-xs font-medium uppercase">
                   since 2019
                 </p>
@@ -301,7 +301,7 @@ export default function Rewind() {
                   all rights reserved.
                 </p>
                 <p className="text--orange-400 w-max -rotate-90 text-xs font-medium uppercase">
-                  made with love
+                  portra400
                 </p>
                 <p className="text--orange-400 w-max -rotate-90 text-xs font-medium uppercase">
                   all rights reserved.

@@ -130,7 +130,7 @@ export default function About() {
           ref={aboutImgRef}
           className="pt-site-margin grid grid-cols-12 gap-4 py-10"
         >
-          <div className="col-start-4 col-end-10 row-start-1 py-6">
+          <div className="col-start-2 col-end-12 lg:col-start-4 lg:col-end-10 row-start-1 lg:row-start-1 py-6">
             <Image
               src="/yeo-team-3.jpg"
               alt="Logo Yeo Vietnam"
@@ -141,7 +141,7 @@ export default function About() {
           </div>
           <div
             ref={aboutLeftImgRef}
-            className="col-start-2 col-end-5 row-start-1 flex items-start"
+            className="col-start-1 col-end-7 lg:col-start-2 lg:col-end-5 row-start-1 flex items-start"
           >
             <Image
               src="/hero-8.jpg"
@@ -153,7 +153,7 @@ export default function About() {
           </div>
           <div
             ref={aboutRightImgRef}
-            className="col-start-9 col-end-12 row-start-1 flex items-end"
+            className="col-start-7 col-end-13 lg:col-start-9 lg:col-end-12 row-start-1 lg:row-start-1 flex items-end"
           >
             <Image
               src="/yeo-team-2.jpg"

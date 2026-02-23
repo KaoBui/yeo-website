@@ -104,11 +104,11 @@ export default function IntroOverlay() {
               alt="yeo logo"
               width={800}
               height={800}
-              className="h-auto w-1/2 object-cover"
+              className="h-auto w-full lg:w-1/2 object-cover"
               loading="eager"
             />
           </div>
-          <p className="text-display text--blue-50 absolute bottom-0 text-right">
+          <p className="text-display text--blue-50 absolute bottom-[15svh] lg:bottom-0 text-right">
             <NumberFlow
               trend={1}
               transformTiming={{
