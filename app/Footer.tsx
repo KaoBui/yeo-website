@@ -24,10 +24,10 @@ export default function Footer() {
     });
 
     gsap.from(split.words, {
-      yPercent: 100,
-      stagger: 0.02,
-      duration: 0.4,
-      ease: "power3.out",
+      yPercent: 120,
+      stagger: 0.01,
+      duration: 0.7,
+      ease: "power3.inOut",
       scrollTrigger: {
         trigger: testimonialsRef.current,
         start: "bottom 25%",

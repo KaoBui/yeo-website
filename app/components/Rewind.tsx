@@ -280,7 +280,7 @@ export default function Rewind() {
           <div ref={rewindCardsMoveRef} className="will-change-transform">
             <div
               ref={rewindCardsRef}
-              className="rewind-wrapper-bg relative flex w-full origin-top-left flex-col gap-12 px-(--site--margin) py-20 shadow-xl lg:rotate-[1deg]"
+              className="rewind-wrapper-bg relative grid w-full origin-top-left grid-cols-12 gap-1 px-1 py-20 shadow-xl lg:rotate-[1deg] lg:gap-2 xl:px-2"
             >
               <div className="w-site-margin absolute left-0 flex h-full flex-col items-center justify-around text-sm">
                 <p className="text--orange-400 w-max -rotate-90 text-xs font-medium uppercase">
@@ -291,6 +291,9 @@ export default function Rewind() {
                 </p>
                 <p className="text--orange-400 w-max -rotate-90 text-xs font-medium uppercase">
                   all rights reserved.
+                </p>
+                <p className="text--orange-400 w-max -rotate-90 text-xs font-medium uppercase">
+                  YEO archives
                 </p>
               </div>
               <div className="w-site-margin absolute right-0 flex h-full flex-col items-center justify-around text-sm">
@@ -307,35 +310,53 @@ export default function Rewind() {
                   all rights reserved.
                 </p>
               </div>
-              <div className="img-container flex w-full justify-center">
-                <Image
-                  src="/logo-white.png"
-                  alt="yeo logo"
-                  width={800}
-                  height={800}
-                  className="h-auto w-1/2 object-cover"
-                  onLoad={() => ScrollTrigger.refresh()}
-                />
+              <div className="z-1 col-start-1 col-end-2 flex flex-col justify-between gap-12">
+                {Array.from({ length: 40 }).map((_, index) => (
+                  <div
+                    key={index}
+                    className="h-site-margin w-full justify-self-center rounded-xs bg-neutral-900 md:rounded-md"
+                  />
+                ))}
               </div>
-              {localizedRewindCards.map((card, index) => (
-                <div
-                  key={`${card.projectName}-${card.date}-${index}`}
-                  ref={(el) => {
-                    cardItemRefs.current[index] = el;
-                  }}
-                >
-                  <RewindCard
-                    name={card.name}
-                    location={card.location}
-                    date={card.date}
-                    projectName={card.projectName}
-                    projectDescription={card.projectDescription}
-                    firstImage={card.firstImage}
-                    image={card.image}
-                    onImageLoad={handleCardImageLoad}
+              <div className="col-start-2 col-end-12 flex h-full flex-col gap-12">
+                <div className="img-container flex w-full justify-center">
+                  <Image
+                    src="/logo-white.png"
+                    alt="yeo logo"
+                    width={800}
+                    height={800}
+                    className="h-auto w-1/2 object-cover"
+                    onLoad={() => ScrollTrigger.refresh()}
                   />
                 </div>
-              ))}
+                {localizedRewindCards.map((card, index) => (
+                  <div
+                    key={`${card.projectName}-${card.date}-${index}`}
+                    ref={(el) => {
+                      cardItemRefs.current[index] = el;
+                    }}
+                  >
+                    <RewindCard
+                      name={card.name}
+                      location={card.location}
+                      date={card.date}
+                      projectName={card.projectName}
+                      projectDescription={card.projectDescription}
+                      firstImage={card.firstImage}
+                      image={card.image}
+                      onImageLoad={handleCardImageLoad}
+                    />
+                  </div>
+                ))}
+              </div>
+              <div className="z-2 col-start-12 col-end-13 flex flex-col justify-between gap-12">
+                {Array.from({ length: 40 }).map((_, index) => (
+                  <div
+                    key={index}
+                    className="h-site-margin w-full justify-self-center rounded-xs bg-neutral-900 md:rounded-md"
+                  />
+                ))}
+              </div>
             </div>
           </div>
         </div>
