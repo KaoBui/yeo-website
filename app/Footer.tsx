@@ -54,7 +54,7 @@ export default function Footer() {
           height={1000}
           className="absolute -right-1/10 h-[80vh] w-auto opacity-5"
         />
-        <div className="site-container bottom-0 flex h-full flex-col justify-between py-4">
+        <div className="site-container relative bottom-0 z-1 flex h-full flex-col justify-between py-4">
           <p
             ref={footerTextRef}
             className="text-h1 leading-head pt-site-margin max-w-[24ch] text-white uppercase"
@@ -96,7 +96,11 @@ export default function Footer() {
               © {new Date().getFullYear()} {t("footer-rights")}
               <p className="text-xs uppercase">
                 Website by{" "}
-                <a href="https://kaobui.com/" target="_blank">
+                <a
+                  href="https://kaobui.com/"
+                  target="_blank"
+                  className="hover:underline"
+                >
                   Kao
                 </a>{" "}
               </p>
