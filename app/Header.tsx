@@ -2,7 +2,7 @@
 import { useLocale, useTranslations } from "next-intl";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useState, type MouseEvent } from "react";
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
 
 export default function Header() {
@@ -14,11 +14,35 @@ export default function Header() {
   const nextLocale = locale === "vi" ? "en" : "vi";
 
   const navLinks = [
-    { href: "/", label: t("nav.home") },
-    { href: "/about", label: t("nav.about") },
-    { href: "/programs", label: t("nav.programs") },
-    { href: "/contact", label: t("nav.contact") },
+    { href: "#hero", label: t("nav.home") },
+    { href: "#about", label: t("nav.about") },
+    { href: "#projects", label: t("nav.programs") },
+    { href: "#contact", label: t("nav.contact") },
   ];
+
+  const handleNavClick =
+    (href: string) => (event: MouseEvent<HTMLAnchorElement>) => {
+      event.preventDefault();
+      setIsMenuOpen(false);
+
+      if (!href.startsWith("#")) return;
+
+      const lenis = window.__lenis;
+      if (!lenis) {
+        window.location.hash = href;
+        return;
+      }
+
+      lenis.start();
+      window.requestAnimationFrame(() => {
+        lenis.scrollTo(href, {
+          offset: -80,
+          duration: 1.2,
+          easing: (t: number) => 1 - Math.pow(1 - t, 3),
+        });
+        window.history.pushState(null, "", href);
+      });
+    };
 
   useEffect(() => {
     const lenis = window.__lenis;
@@ -48,7 +72,7 @@ export default function Header() {
         }`}
       />
       <div className="site-container fixed top-4 z-100 mx-auto w-full max-w-md">
-        <div className="bg-white overflow-hidden rounded-xl mx-4 lg:mx-0 shadow-sm">
+        <div className="mx-4 overflow-hidden rounded-xl bg-white shadow-sm lg:mx-0">
           <div className="relative flex h-12 items-center justify-between px-4 py-2">
             <Link href="/" className="h-full font-semibold tracking-tight">
               <Image
@@ -66,7 +90,9 @@ export default function Header() {
             <div className="flex items-center gap-1">
               <button
                 type="button"
-                aria-label={t("switchLocale", { locale: nextLocale.toUpperCase() })}
+                aria-label={t("switchLocale", {
+                  locale: nextLocale.toUpperCase(),
+                })}
                 onClick={() => router.replace(pathname, { locale: nextLocale })}
                 className="text--blue-600 hover:bg--blue-100 cursor-pointer rounded px-2 py-1 text-xs font-semibold"
               >
@@ -111,13 +137,13 @@ export default function Header() {
               <ul className="flex flex-col gap-1 px-3 py-3">
                 {navLinks.map((link) => (
                   <li key={link.href}>
-                    <Link
+                    <a
                       href={link.href}
-                      onClick={() => setIsMenuOpen(false)}
-                      className="text-primary hover:text--blue-600 hover:bg--blue-100 block rounded-md px-3 py-2 uppercase text-center"
+                      onClick={handleNavClick(link.href)}
+                      className="text-primary hover:text--blue-600 hover:bg--blue-100 block rounded-md px-3 py-2 text-center uppercase"
                     >
                       {link.label}
-                    </Link>
+                    </a>
                   </li>
                 ))}
               </ul>

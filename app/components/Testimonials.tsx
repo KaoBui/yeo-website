@@ -7,6 +7,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import PartnerLogos from "./PartnerLogos";
 import RevealTitle from "./ui/RevealTItle";
+import { useSectionRefs } from "../providers/section-refs-provider";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -21,7 +22,7 @@ type FeedbackItem = {
 
 export default function Testimonials() {
   const t = useTranslations("Testimonials");
-  const testimonialsRef = useRef<HTMLElement | null>(null);
+  const { testimonialsRef } = useSectionRefs();
   const testimonialsTitleRef = useRef<HTMLDivElement | null>(null);
   const cardRefs = useRef<Array<HTMLDivElement | null>>([]);
 

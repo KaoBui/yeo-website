@@ -23,6 +23,9 @@ export default function LenisProvider({
     const lenis = new Lenis({
       duration: 1.2,
       smoothWheel: true,
+      anchors: {
+        offset: -80,
+      },
     });
     window.__lenis = lenis;
     if (window.__lenisLocked) {

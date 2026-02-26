@@ -5,6 +5,7 @@ import { getMessages, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 
 import LenisProvider from "@/app/providers/lenis-providers";
+import { SectionRefsProvider } from "@/app/providers/section-refs-provider";
 import { routing } from "@/i18n/routing";
 
 import "../globals.css";
@@ -52,10 +53,12 @@ export default async function LocaleLayout({ children, params }: Props) {
       <body className={`${arimo.variable} antialiased`}>
         <NextIntlClientProvider messages={messages}>
           <LenisProvider>
-            <IntroOverlay />
-            <Header />
-            {children}
-            <Footer />
+            <SectionRefsProvider>
+              <IntroOverlay />
+              <Header />
+              {children}
+              <Footer />
+            </SectionRefsProvider>
           </LenisProvider>
         </NextIntlClientProvider>
         <Analytics />

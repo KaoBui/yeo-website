@@ -1,12 +1,48 @@
+"use client";
 import Image from "next/image";
 import yeoWhiteLogo from "@/public/yeo-white.svg";
 import { useTranslations } from "next-intl";
+import { useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+import { SplitText } from "gsap/SplitText";
+import { useSectionRefs } from "./providers/section-refs-provider";
 
 export default function Footer() {
   const t = useTranslations("Footer");
+  const footerTextRef = useRef<HTMLParagraphElement | null>(null);
+  const { testimonialsRef } = useSectionRefs();
+
+  useGSAP(() => {
+    if (!footerTextRef.current || !testimonialsRef.current) return;
+    gsap.registerPlugin(ScrollTrigger, SplitText);
+
+    const split = SplitText.create(footerTextRef.current, {
+      type: "words",
+      mask: "words",
+    });
+
+    gsap.from(split.words, {
+      yPercent: 100,
+      stagger: 0.02,
+      duration: 0.4,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: testimonialsRef.current,
+        start: "bottom 25%",
+        toggleActions: "play none none reverse",
+      },
+    });
+
+    return () => {
+      split.revert();
+    };
+  }, []);
 
   return (
     <footer
+      id="contact"
       className="relative h-[80vh] select-none"
       style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
     >
@@ -19,7 +55,10 @@ export default function Footer() {
           className="absolute -right-1/10 h-[80vh] w-auto opacity-5"
         />
         <div className="site-container bottom-0 flex h-full flex-col justify-between py-4">
-          <p className="text-h1 leading-head pt-site-margin max-w-[24ch] text-white uppercase">
+          <p
+            ref={footerTextRef}
+            className="text-h1 leading-head pt-site-margin max-w-[24ch] text-white uppercase"
+          >
             {t.rich("text", {
               br: () => <br />,
             })}

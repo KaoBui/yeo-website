@@ -9,6 +9,8 @@ import { HOLD_DURATION_S } from "@/app/components/IntroOverlay";
 import { ANIMATION_DURATION_S } from "@/app/components/IntroOverlay";
 import { SplitText } from "gsap/SplitText";
 import { useTranslations } from "next-intl";
+import NumberFlow, { continuous } from "@number-flow/react";
+import { useState } from "react";
 
 const items = [
   { image: "/hero-1.jpg", text: "" },
@@ -28,6 +30,11 @@ export default function Hero() {
   const headingRef = useRef<HTMLDivElement | null>(null);
   const subheadingRef = useRef<HTMLDivElement | null>(null);
   const delayDuration = HOLD_DURATION_S + ANIMATION_DURATION_S - 0.5;
+
+  const springEasing = `linear(0, 0.0019 0.48%, 0.008, 0.018 1.51%, 0.0324 2.06%, 0.0731 3.18%, 0.131 4.4%, 0.1881 5.43%, 0.261 6.62%, 0.5554 11.05%, 0.6806 13.04%, 0.7961 15.1%, 0.8901 17.06%, 0.9313, 0.968, 1.0002, 1.0281 21.04%, 1.0524, 1.0725 23.09%, 1.089 24.15%, 1.1019 25.25%, 1.113 26.66%, 1.1187 28.14%, 1.1192 29.71%, 1.1147 31.41%, 1.1078 32.83%, 1.0976 34.43%, 1.0415 41.66%, 1.0172 45.39%, 1.0068 47.44%, 0.9985 49.53%, 0.9925 51.65%, 0.9883 53.9%, 0.9859 56.92%, 0.9863 60.42%, 0.9975 73.75%, 1.001 80.97%, 1.0006 99.99%)`;
+  const springDuration = 4000;
+  const updatedValue = 15000000;
+  const [fundValue, setFundValue] = useState(0);
 
   useGSAP(() => {
     if (!headingRef.current || !subheadingRef.current) return;
@@ -63,7 +70,8 @@ export default function Hero() {
           ease: "power3.out",
         },
         "<0.1",
-      );
+      )
+      .add(() => setFundValue(updatedValue), "<0.2");
 
     return () => {
       headingSplit.revert();
@@ -152,7 +160,18 @@ export default function Hero() {
         <div className="mt-2 flex items-center gap-2 rounded-xl bg-white p-2 pl-4 shadow-sm">
           <p className="text-primary text-xs uppercase">{t("fundText")}</p>
           <div className="bg--blue-600 rounded-lg px-4 py-2 text-sm text-white">
-            <p>15,000,000</p>
+            <p>
+              <NumberFlow
+                trend={1}
+                plugins={[continuous]}
+                transformTiming={{
+                  duration: springDuration,
+                  easing: springEasing,
+                }}
+                format={{ style: "currency", currency: "VND" }}
+                value={fundValue}
+              />
+            </p>
           </div>
         </div>
       </div>{" "}
