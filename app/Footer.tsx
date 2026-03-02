@@ -71,10 +71,10 @@ export default function Footer() {
                 </p>
                 <ul className="space-y-2 text-base text-white">
                   <li>
-                    <a href="">contact@yeo.vn</a>
+                    <a href="">yeoworking@gmail.com </a>
                   </li>
                   <li>
-                    <a href="">+84 9 61 35 14 53</a>
+                    <a href="">0395 019 254</a>
                   </li>
                 </ul>
               </div>
@@ -84,10 +84,23 @@ export default function Footer() {
                 </p>
                 <ul className="space-y-2 text-base text-white">
                   <li>
-                    <a href="">Facebook</a>
+                    <a
+                      href="https://www.facebook.com/yeovietnam/"
+                      target="_blank"
+                    >
+                      Facebook
+                    </a>
                   </li>
                   <li>
-                    <a href="">TikTok</a>
+                    <a
+                      href="https://www.tiktok.com/@yeovietnam_official"
+                      target="_blank"
+                    >
+                      TikTok
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://www.instagram.com/yeo.vn" target="_blank">Instagram</a>
                   </li>
                 </ul>
               </div>

@@ -34,7 +34,7 @@ export const projects: ProjectData[] = [
 
     title: "summer camp",
     subtitle: "trại hè hướng nghiệp",
-    coverImage: "/hero-1.jpg",
+    coverImage: "/summer-camp-yeo.jpg",
     imageAlt: "Logo Yeo Vietnam",
     buttonText: "tìm hiểu thêm",
 

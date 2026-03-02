@@ -56,15 +56,15 @@
     --type--text-xs: 0.813em;
     --type--text-sm: 0.875em;
     --type--text-base: 1em;
-    --type--text-md: 1.25em;
-    --type--text-lg: 1.563em;
-    --type--text-xl: 1.938em;
-    --type--text-h5: 2.438em;
-    --type--text-h4: 3.063em;
-    --type--text-h3: 3.813em;
-    --type--text-h2: 4.25em;
-    --type--text-h1: 4.5em;
-    --type--text-display: 5.2em;
+    --type--text-md: 1.2em;
+    --type--text-lg: 1.44em;
+    --type--text-xl: 1.728em;
+    --type--text-h5: 2em;
+    --type--text-h4: 2.48em;
+    --type--text-h3: 2.9em;
+    --type--text-h2: 3.58em;
+    --type--text-h1: 4.3em;
+    --type--text-display: 4.7em;
   }
 }
 

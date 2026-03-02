@@ -26,13 +26,14 @@ export default function Hero() {
   const t = useTranslations("Hero");
 
   const heroRef = useRef<HTMLElement | null>(null);
+  const heroFundRef = useRef<HTMLDivElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const headingRef = useRef<HTMLDivElement | null>(null);
   const subheadingRef = useRef<HTMLDivElement | null>(null);
   const delayDuration = HOLD_DURATION_S + ANIMATION_DURATION_S - 0.5;
 
   const springEasing = `linear(0, 0.0019 0.48%, 0.008, 0.018 1.51%, 0.0324 2.06%, 0.0731 3.18%, 0.131 4.4%, 0.1881 5.43%, 0.261 6.62%, 0.5554 11.05%, 0.6806 13.04%, 0.7961 15.1%, 0.8901 17.06%, 0.9313, 0.968, 1.0002, 1.0281 21.04%, 1.0524, 1.0725 23.09%, 1.089 24.15%, 1.1019 25.25%, 1.113 26.66%, 1.1187 28.14%, 1.1192 29.71%, 1.1147 31.41%, 1.1078 32.83%, 1.0976 34.43%, 1.0415 41.66%, 1.0172 45.39%, 1.0068 47.44%, 0.9985 49.53%, 0.9925 51.65%, 0.9883 53.9%, 0.9859 56.92%, 0.9863 60.42%, 0.9975 73.75%, 1.001 80.97%, 1.0006 99.99%)`;
-  const springDuration = 4000;
+  const springDuration = 3000;
   const updatedValue = 15000000;
   const [fundValue, setFundValue] = useState(0);
 
@@ -71,7 +72,19 @@ export default function Hero() {
         },
         "<0.1",
       )
-      .add(() => setFundValue(updatedValue), "<0.2");
+      .fromTo(
+        heroFundRef.current,
+        {
+          clipPath: "inset(0 50% round 14px)",
+        },
+        {
+          clipPath: "inset(0 0% round 14px)",
+          duration: 0.5,
+          ease: "power3.out",
+        },
+        "<0.4",
+      )
+      .add(() => setFundValue(updatedValue), "<");
 
     return () => {
       headingSplit.revert();
@@ -110,7 +123,7 @@ export default function Hero() {
     <section id="hero" ref={heroRef} className="relative mt-0">
       <div
         ref={containerRef}
-        className="site-container flex min-h-[70vh] flex-col items-center justify-center gap-[5vh] pt-16 will-change-transform"
+        className="site-container flex min-h-[80vh] flex-col items-center justify-center gap-[8%] pt-16 will-change-transform"
         style={{ willChange: "transform, filter" }}
       >
         <div className="flex flex-col gap-2">
@@ -137,9 +150,9 @@ export default function Hero() {
               className="h-auto w-20 object-contain"
             />
           </div>
-          <p className="text-secondary text-center text-sm font-medium uppercase">
+          <p className="text-secondary text-center text-xs font-medium uppercase">
             {t.rich("label", {
-              em: (chunks) => <span className="text--blue-600">{chunks}</span>,
+              em: (chunks) => <span className="">{chunks}</span>,
             })}
           </p>
         </div>
@@ -157,9 +170,12 @@ export default function Hero() {
             {t("heading")}
           </h1>
         </div>
-        <div className="mt-2 flex items-center gap-2 rounded-xl bg-white p-2 pl-4 shadow-sm">
+        <div className="mt-2 flex flex-col items-center gap-2">
           <p className="text-primary text-xs uppercase">{t("fundText")}</p>
-          <div className="bg--blue-600 rounded-lg px-4 py-2 text-sm text-white">
+          <div
+            ref={heroFundRef}
+            className="bg--blue-600 text-h5 shadow--blue-600/40 flex items-center gap-4 rounded-xl px-8 py-1 text-white shadow-2xl"
+          >
             <p>
               <NumberFlow
                 trend={1}

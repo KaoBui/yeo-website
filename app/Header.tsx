@@ -84,7 +84,7 @@ export default function Header() {
               />
             </Link>
 
-            <p className="text--blue-600 pointer-events-none absolute left-1/2 -translate-x-1/2 font-medium uppercase">
+            <p className="text-primary pointer-events-none absolute left-1/2 -translate-x-1/2 font-medium uppercase">
               {t("brand")}
             </p>
             <div className="flex items-center gap-1">
