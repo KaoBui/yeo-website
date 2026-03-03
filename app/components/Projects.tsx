@@ -1,9 +1,10 @@
 "use client";
 import { useMemo, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
-import { projects } from "./projects/project";
+import { projects, type ProjectData } from "./projects/project";
 import ProjectCard from "./ProjectCard";
 import ProjectOverlay from "./ProjectOverlay";
+import MoreProjectsSlide from "./MoreProjectsSlide";
 import RevealTitle from "./ui/RevealTItle";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -19,23 +20,35 @@ export default function Projects() {
 
   const localizedProjects = useMemo(
     () =>
-      projects.map((project) => ({
-        ...project,
-        title: t(`${project.id}.title`),
-        subtitle: t(`${project.id}.subtitle`),
-        imageAlt: t(`${project.id}.imageAlt`),
-        buttonText: t("buttonText"),
-        paragraphs: [
-          t(`${project.id}.paragraphs.0`),
-          t(`${project.id}.paragraphs.1`),
-        ] as [string, string],
-      })),
+      projects.map((slide) => {
+        if (slide.kind === "notice") {
+          return {
+            ...slide,
+            message: t(slide.messageKey),
+          };
+        }
+
+        return {
+          ...slide,
+          title: t(`${slide.id}.title`),
+          subtitle: t(`${slide.id}.subtitle`),
+          imageAlt: t(`${slide.id}.imageAlt`),
+          buttonText: t("buttonText"),
+          paragraphs: [t(`${slide.id}.paragraphs.0`), t(`${slide.id}.paragraphs.1`)] as [
+            string,
+            string,
+          ],
+        };
+      }),
     [t],
   );
 
   const expandedProject = useMemo(() => {
     if (!expandedId) return null;
-    return localizedProjects.find((p) => p.id === expandedId) ?? null;
+    const match = localizedProjects.find(
+      (p): p is ProjectData => p.kind === "project" && p.id === expandedId,
+    );
+    return match ?? null;
   }, [expandedId, localizedProjects]);
 
   return (
@@ -72,11 +85,11 @@ export default function Projects() {
             1024: { slidesPerView: 2.2, spaceBetween: 0 },
           }}
         >
-          {localizedProjects.map((project, idx) => {
+          {localizedProjects.map((slide, idx) => {
             const isActive = idx === activeIndex;
 
             return (
-              <SwiperSlide key={project.id} className="flex justify-center py-8">
+              <SwiperSlide key={slide.id} className="flex justify-center py-8">
                 <div
                   className={[
                     "flex justify-center transition-all duration-300 ease-out",
@@ -84,18 +97,22 @@ export default function Projects() {
                     !isActive ? "blur-[4px]" : "",
                   ].join(" ")}
                 >
-                  <ProjectCard
-                    project={{
-                      id: project.id,
-                      subtitle: project.subtitle,
-                      title: project.title,
-                      imageSrc: project.coverImage,
-                      imageAlt: project.imageAlt,
-                      buttonText: project.buttonText,
-                    }}
-                    isActive={isActive}
-                    onExpand={setExpandedId}
-                  />
+                  {slide.kind === "project" ? (
+                    <ProjectCard
+                      project={{
+                        id: slide.id,
+                        subtitle: slide.subtitle,
+                        title: slide.title,
+                        imageSrc: slide.coverImage,
+                        imageAlt: slide.imageAlt,
+                        buttonText: slide.buttonText,
+                      }}
+                      isActive={isActive}
+                      onExpand={setExpandedId}
+                    />
+                  ) : (
+                    <MoreProjectsSlide message={slide.message} />
+                  )}
                 </div>
               </SwiperSlide>
             );

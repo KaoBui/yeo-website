@@ -150,11 +150,11 @@ export default function Hero() {
               className="h-auto w-20 object-contain"
             />
           </div>
-          <p className="text-secondary text-center text-xs font-medium uppercase">
+          {/* <p className="text-secondary text-center text-xs font-medium uppercase">
             {t.rich("label", {
               em: (chunks) => <span className="">{chunks}</span>,
             })}
-          </p>
+          </p> */}
         </div>
         <div className="flex flex-col gap-2">
           <p
@@ -170,11 +170,11 @@ export default function Hero() {
             {t("heading")}
           </h1>
         </div>
-        <div className="mt-2 flex flex-col items-center gap-2">
-          <p className="text-primary text-xs uppercase">{t("fundText")}</p>
+        <div className="mt-2 flex flex-col items-center gap-4">
+          <p className="text-secondary text-xs uppercase max-w-[64ch] text-center">{t("fundText")}</p>
           <div
             ref={heroFundRef}
-            className="bg--blue-600 text-h5 shadow--blue-600/40 flex items-center gap-4 rounded-xl px-8 py-1 text-white shadow-2xl"
+            className="bg--blue-600 text-h5 shadow--blue-600/40 flex items-center rounded-xl px-8 py-1 text-white shadow-2xl"
           >
             <p>
               <NumberFlow

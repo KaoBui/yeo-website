@@ -1,4 +1,10 @@
-export type ProjectData = {
+type BaseSlide = {
+  id: string;
+  kind: "project" | "notice";
+};
+
+export type ProjectData = BaseSlide & {
+  kind: "project";
   id: string;
 
   // Card (compact)
@@ -13,9 +19,17 @@ export type ProjectData = {
   paragraphs: [string, string];
 };
 
-export const projects: ProjectData[] = [
+export type NoticeSlide = BaseSlide & {
+  kind: "notice";
+  messageKey: "moreComing";
+};
+
+export type CarouselSlide = ProjectData | NoticeSlide;
+
+export const projects: CarouselSlide[] = [
   {
     id: "project",
+    kind: "project",
 
     title: "From beans to dreams",
     subtitle: "dự án",
@@ -31,6 +45,7 @@ export const projects: ProjectData[] = [
   },
   {
     id: "summer-camp",
+    kind: "project",
 
     title: "summer camp",
     subtitle: "trại hè hướng nghiệp",
@@ -46,6 +61,7 @@ export const projects: ProjectData[] = [
   },
   {
     id: "vhbc",
+    kind: "project",
 
     title: "Business Case Competition",
     subtitle: "Cuộc thi",
@@ -61,6 +77,7 @@ export const projects: ProjectData[] = [
   },
   {
     id: "talkshow",
+    kind: "project",
 
     title: "Pha chuyện",
     subtitle: "Talkshow",
@@ -73,5 +90,10 @@ export const projects: ProjectData[] = [
       "Pha Chuyện là chuỗi talkshow được tổ chức tại nhiều trường Đại học trên toàn quốc, tạo không gian kết nối trực tiếp giữa sinh viên và các diễn giả – những người đi trước giàu kinh nghiệm. Tại đây, sinh viên có cơ hội cùng nhau “Pha chuyện” xoay quanh những vấn đề thực tế mà các bạn đang đối diện trong quá trình học tập, phát triển bản thân và chuẩn bị bước vào thị trường lao động.",
       "Thông qua Pha Chuyện, YEO Vietnam mong muốn trở thành cầu nối đồng hành cùng sinh viên trên nhiều chặng đường khác nhau, giúp các bạn có sự chuẩn bị vững vàng về tư duy, kỹ năng và định hướng nghề nghiệp trước khi chính thức bước vào hành trình “Người trẻ đi làm”.",
     ],
+  },
+  {
+    id: "more-coming",
+    kind: "notice",
+    messageKey: "moreComing",
   },
 ];

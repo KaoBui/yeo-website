@@ -16,7 +16,7 @@
     "label": "Kiến tạo cùng <em>YEO VIETNAM</em>",
     "subheading": "Vì thế hệ trẻ Việt Nam",
     "heading": "vươn mình rực rỡ",
-    "fundText": "Tổng giá trị quỹ YEO VIETNAM"
+    "fundText": "Nerd.box, Ru:tine và Contrast tiếp sức cùng Quỹ YEO Vietnam với tổng giá trị"
   },
   "About": {
     "title": "Về <em>YEO</em><br></br>VIETNAM",
@@ -32,6 +32,7 @@
   "Projects": {
     "title": "Dự án của<br></br><em>YEO VIETNAM</em>",
     "buttonText": "tìm hiểu thêm",
+    "moreComing": "Và những dự án bền vững khác, YEO Vietnam sẽ bật mí dần cho bạn nha!",
     "close": "Đóng",
     "project": {
       "title": "From Beans to Dreams",
@@ -114,21 +115,22 @@
       {
         "shortText": "Cảm ơn YEO Việt Nam vì đã mang đến cho các con một mùa hè bổ ích và đáng nhớ.",
         "longText": "Cho con tham gia trại hè của YEO Việt Nam thực sự là một lựa chọn đúng đắn. Dù lịch hoạt động khá dày, con vẫn rất hào hứng, tự tin và trưởng thành hơn rõ rệt. Con còn nói với tôi rằng chuyến đi này rất xứng đáng và mong muốn tiếp tục tham gia những chương trình trải nghiệm ý nghĩa như vậy trong tương lai.",
-        "name": "Cô Thủy Nguyễn"
+        "name": "Cô Phạm Thị Ngọc"
       },
       {
         "shortText": "Em cảm thấy tự tin hơn về con đường phía trước và có thêm động lực cho bản thân.",
         "longText": "Em đã từng tham gia một lớp định hướng nghề nghiệp khác, nhưng vẫn cảm thấy mông lung và chưa hiểu rõ bản thân mình. Nhưng sau khi nghe những kiến thức và trải nghiệm được chia sẻ tại YEO, em cảm thấy rõ ràng hơn và có thêm động lực cho bản thân. Em cảm ơn các anh chị ở YEO đã tổ chức một buổi chia sẻ tuyệt vời như vậy ạ.",
-        "name": "Cô Thủy Nguyễn"
+        "name": "Bạn Mai Anh"
       }
     ]
   },
   "Fund": {
     "title": "quỹ <em>YEO</em> Vietnam",
-    "totalLabel": "tổng giá trị quỹ",
+    "totalLabel": "Nerd.box, Ru:tine và Contrast đã đóng góp",
     "lastUpdated": "cập nhật lần cuối ngày 14/2",
-    "p1": "Quỹ YEO Vietnam được thành lập từ sự đồng hành của ba thương hiệu Nerd.box, Contrast và Ru:tine, thông qua cơ chế đóng góp 500đ trên mỗi hóa đơn. Quỹ ra đời với sứ mệnh trao quyền và mở ra cơ hội phát triển cho thế hệ trẻ Việt Nam.",
-    "p2": "Quỹ tập trung triển khai các dự án giáo dục nổi bật: From Beans to Dreams, Summer Camp - Định hướng nghề nghiệp, Vietnam High School Business Case Competition, và chuỗi talkshow \"Chào Safe\". Từ những đóng góp nhỏ, Quỹ YEO Vietnam đang từng bước xây dựng một thế hệ trẻ tự tin - bản lĩnh - sẵn sàng kiến tạo tương lai.",
+    "p1": "Quỹ YEO Vietnam được hình thành từ sự đồng hành của ba thương hiệu Nerd.box, Contrast và Ru:tine, với cơ chế trích 500đ trên mỗi hóa đơn. Bên cạnh đó là sự chung tay của các đối tác doanh nghiệp trong từng dự án, cùng hướng đến mục tiêu trao quyền cho thế hệ trẻ Việt Nam.",
+    "p2": "Ra đời với sứ mệnh mở rộng cơ hội phát triển cho người trẻ, Quỹ tập trung triển khai các dự án giáo dục tiêu biểu như: From Beans to Dreams, Summer Camp - Định hướng nghề nghiệp, Vietnam High School Business Case Competition và nhiều sáng kiến bền vững khác.",
+    "p3": "Từ những đóng góp nhỏ nhưng bền bỉ, Quỹ YEO Vietnam đang từng bước góp phần xây dựng một thế hệ trẻ tự tin - bản lĩnh - sẵn sàng kiến tạo một Việt Nam rực rỡ.",
     "logoAlt": "Logo Yeo Vietnam",
     "brand": "Yeo Vietnam"
   },

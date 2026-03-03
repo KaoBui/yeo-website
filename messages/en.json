@@ -16,7 +16,7 @@
     "label": "Co-creating together",
     "subheading": "For Vietnam's young generation",
     "heading": "to rise and shine",
-    "fundText": "Current value of the YEO VIETNAM fund"
+    "fundText": "Nerd.box, Ru:tine, and Contrast support the YEO Vietnam Fund with a value of"
   },
   "About": {
     "title": "About <em>YEO</em><br></br>VIETNAM",
@@ -32,6 +32,7 @@
   "Projects": {
     "title": "YEO VIETNAM<br></br><em>Projects</em>",
     "buttonText": "Learn more",
+    "moreComing": "There are more projects coming...",
     "close": "Close",
     "project": {
       "title": "From Beans to Dreams",
@@ -114,21 +115,22 @@
       {
         "shortText": "Thank you, YEO Vietnam, for giving our children a meaningful and memorable summer.",
         "longText": "Sending my child to YEO Vietnam's summer camp was truly the right decision. Even with a packed schedule, my child stayed excited, became more confident, and matured noticeably. My child told me the trip was worth it and wanted to continue joining impactful experiential programs like this.",
-        "name": "Ms. Thuy Nguyen"
+        "name": "Ms. Pham Thi Ngoc"
       },
       {
         "shortText": "I feel more confident about the road ahead and more motivated.",
         "longText": "I had joined another career orientation class before, but I still felt uncertain and did not fully understand myself. After listening to YEO's shared knowledge and experiences, I gained much more clarity and motivation. Thank you to the YEO team for organizing such an excellent sharing session.",
-        "name": "Ms. Thuy Nguyen"
+        "name": "Mai Anh"
       }
     ]
   },
   "Fund": {
-    "title": "YEO <em>Fund</em> Vietnam",
+    "title": "<em>YEO</em> Vietnam Fund",
     "totalLabel": "total fund value",
     "lastUpdated": "last updated on Feb 14",
-    "p1": "The YEO Vietnam Fund was founded through the partnership of three brands: Nerd.box, Contrast, and Ru:tine, via a 500 VND contribution mechanism on each invoice. The fund was created with the mission of empowering and opening development opportunities for Vietnam's young generation.",
-    "p2": "The fund focuses on key education initiatives: From Beans to Dreams, Summer Camp - Career Orientation, Vietnam High School Business Case Competition, and the \"Chao Safe\" talkshow series. From small contributions, the YEO Vietnam Fund is steadily building a generation that is confident, resilient, and ready to shape the future.",
+    "p1": "The YEO Vietnam Fund was established through the collaboration of three brands: Nerd.box, Contrast, and Ru:tine, with a mechanism of deducting 500 VND from each invoice. Additionally, business partners contribute to each project, all working towards the goal of empowering the young generation of Vietnam.",
+    "p2": "Born with the mission of expanding development opportunities for young people, the Fund focuses on implementing exemplary educational projects such as: From Beans to Dreams, Summer Camp - Career Orientation, Vietnam High School Business Case Competition, and many other sustainable initiatives.",
+    "p3": "Through small but persistent contributions, the YEO Vietnam Fund is gradually helping to build a confident and capable young generation that is ready to create a bright future for Vietnam.",
     "logoAlt": "Yeo Vietnam logo",
     "brand": "Yeo Vietnam"
   },
