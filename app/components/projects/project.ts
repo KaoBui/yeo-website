@@ -76,22 +76,6 @@ export const projects: CarouselSlide[] = [
     ],
   },
   {
-    id: "talkshow",
-    kind: "project",
-
-    title: "Pha chuyện",
-    subtitle: "Talkshow",
-    coverImage: "/talkshow.jpg",
-    imageAlt: "Project three cover",
-    buttonText: "tìm hiểu thêm",
-
-    images: ["/talkshow.jpg", "/talkshow-2.jpg", "/talkshow-3.jpg"],
-    paragraphs: [
-      "Pha Chuyện là chuỗi talkshow được tổ chức tại nhiều trường Đại học trên toàn quốc, tạo không gian kết nối trực tiếp giữa sinh viên và các diễn giả – những người đi trước giàu kinh nghiệm. Tại đây, sinh viên có cơ hội cùng nhau “Pha chuyện” xoay quanh những vấn đề thực tế mà các bạn đang đối diện trong quá trình học tập, phát triển bản thân và chuẩn bị bước vào thị trường lao động.",
-      "Thông qua Pha Chuyện, YEO Vietnam mong muốn trở thành cầu nối đồng hành cùng sinh viên trên nhiều chặng đường khác nhau, giúp các bạn có sự chuẩn bị vững vàng về tư duy, kỹ năng và định hướng nghề nghiệp trước khi chính thức bước vào hành trình “Người trẻ đi làm”.",
-    ],
-  },
-  {
     id: "more-coming",
     kind: "notice",
     messageKey: "moreComing",

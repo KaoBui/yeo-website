@@ -64,7 +64,7 @@ export default function Fund() {
     <section ref={fundRef}>
       <div className="site-container space-y-16 py-[25vh] lg:space-y-6">
         <div ref={fundLeftRef} className="grid-cols-12 gap-6 lg:grid">
-          <div className="col-start-1 col-end-7 flex flex-col">
+          <div className="3xl:col-start-2 col-start-1 col-end-7 flex flex-col">
             <h2 className="text-h1 text-secondary mb-4 text-left lg:mb-12 lg:text-right">
               <RevealTitle>
                 {t.rich("title", {
@@ -96,8 +96,8 @@ export default function Fund() {
             </div>
           </div>
         </div>
-        <div ref={fundRightRef} className="grid-cols-12 gap-6 lg:grid">
-          <div className="text-secondary col-start-7 col-end-12 flex flex-col gap-12">
+        <div ref={fundRightRef} className="grid-cols-12 gap-6 lg:grid 3xl:pt-[20vh]">
+          <div className="text-secondary col-start-7 col-end-12 3xl:col-end-11 flex flex-col gap-12">
             <p>{t("p1")}</p>
             <p>{t("p2")}</p>
             <p>{t("p3")}</p>
