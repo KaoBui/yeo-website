@@ -16,7 +16,8 @@
     "label": "Co-creating together",
     "subheading": "For Vietnam's young generation",
     "heading": "to rise and shine",
-    "fundText": "Nerd.box, Ru:tine, and Contrast support the YEO Vietnam Fund with a value of"
+    "fundText": "<em>NERD.BOX, RU:TINE, and CONTRAST</em> donate <em>500 VND</em> from each invoice to the YEO Vietnam Fund",
+    "belowFundText": "total amount raised to date"
   },
   "About": {
     "title": "About <em>YEO</em><br></br>VIETNAM",
@@ -59,6 +60,15 @@
       "paragraphs": [
         "VHBC - Vietnam High School Business Case Competition is Vietnam's first business case-solving competition for high school students, organized by The Trainee Club - YEO Vietnam - Student Consulting Group.",
         "The competition is designed to create a deep business learning environment for students passionate about business. It helps develop practical skills aligned with professional standards and supports career orientation for future business leaders."
+      ]
+    },
+    "talkshow": {
+      "title": "Pha chuyen",
+      "subtitle": "talkshow",
+      "imageAlt": "talkshow cover",
+      "paragraphs": [
+        "“Pha Chuyện is a series of talkshows held at universities nationwide, creating a space for direct connection between students and speakers—experienced individuals who have gone before them. Here, students have the opportunity to engage in ”Pha chuyện“ (discussions) around real-world issues they face in their studies, personal development, and preparation for entering the job market.",
+        "Through Pha Chuyện, YEO Vietnam aims to become a companion for students on their various journeys, helping them build a solid foundation in mindset, skills, and career direction before officially embarking on their journey as ”young professionals"
       ]
     }
   },

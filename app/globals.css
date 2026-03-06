@@ -5,17 +5,17 @@
   --font-base: max(1rem, 16px);
   --type--lh-body: 1.6;
   --type--lh-head: 1.1;
-  --type--text-xs: 0.8em;
-  --type--text-sm: 0.89em;
-  --type--text-base: 1em;
-  --type--text-md: 1.12em;
-  --type--text-lg: 1.25em;
-  --type--text-xl: 1.4em;
-  --type--text-h5: 1.56em;
-  --type--text-h4: 1.75em;
-  --type--text-h3: 1.95em;
-  --type--text-h2: 2.18em;
-  --type--text-h1: 2.44em;
+  --type--text-xs: 0.8rem;
+  --type--text-sm: 0.89rem;
+  --type--text-base: 1rem;
+  --type--text-md: 1.12rem;
+  --type--text-lg: 1.25rem;
+  --type--text-xl: 1.4rem;
+  --type--text-h5: 1.56rem;
+  --type--text-h4: 1.75rem;
+  --type--text-h3: 1.95rem;
+  --type--text-h2: 2.18rem;
+  --type--text-h1: 2.44rem;
   --type--text-display: 3.05em;
   --radius: 0.625rem;
   --background: oklch(1 0 0);
@@ -53,52 +53,52 @@
 
 @media (min-width: 1024px) {
   :root {
-    --type--text-xs: 0.813em;
-    --type--text-sm: 0.875em;
-    --type--text-base: 1em;
-    --type--text-md: 1.2em;
-    --type--text-lg: 1.44em;
-    --type--text-xl: 1.728em;
-    --type--text-h5: 2em;
-    --type--text-h4: 2.48em;
-    --type--text-h3: 2.9em;
-    --type--text-h2: 3.58em;
-    --type--text-h1: 4.3em;
-    --type--text-display: 4.7em;
+    --type--text-xs: 0.813rem;
+    --type--text-sm: 0.875rem;
+    --type--text-base: 1rem;
+    --type--text-md: 1.2rem;
+    --type--text-lg: 1.44rem;
+    --type--text-xl: 1.728rem;
+    --type--text-h5: 2rem;
+    --type--text-h4: 2.48rem;
+    --type--text-h3: 2.9rem;
+    --type--text-h2: 3.58rem;
+    --type--text-h1: 4.3rem;
+    --type--text-display: 4.7rem;
   }
 }
 
 @media (min-width: 1536px) {
   :root {
-    --type--text-xs: 0.813em;
-    --type--text-sm: 0.875em;
-    --type--text-base: 1em;
-    --type--text-md: 1.25em;
-    --type--text-lg: 1.563em;
-    --type--text-xl: 1.938em;
-    --type--text-h5: 2.438em;
-    --type--text-h4: 3.063em;
-    --type--text-h3: 3.813em;
-    --type--text-h2: 4.25em;
-    --type--text-h1: 4.6em;
-    --type--text-display: 5.3em;
+    --type--text-xs: 0.813rem;
+    --type--text-sm: 0.875rem;
+    --type--text-base: 1rem;
+    --type--text-md: 1.25rem;
+    --type--text-lg: 1.563rem;
+    --type--text-xl: 1.938rem;
+    --type--text-h5: 2.438rem;
+    --type--text-h4: 3.063rem;
+    --type--text-h3: 3.813rem;
+    --type--text-h2: 4.25rem;
+    --type--text-h1: 4.6rem;
+    --type--text-display: 5.3rem;
   }
 }
 
 @media (min-width: 1920px) {
   :root {
-    --type--text-xs: 0.813em;
-    --type--text-sm: 0.875em;
-    --type--text-base: 1em;
-    --type--text-md: 1.313em;
-    --type--text-lg: 1.75em;
-    --type--text-xl: 2.3758em;
-    --type--text-h5: 3.188em;
-    --type--text-h4: 4.188em;
-    --type--text-h3: 5.625em;
-    --type--text-h2: 7.5em;
-    --type--text-h1: 8em;
-    --type--text-display: 9em;
+    --type--text-xs: 0.813rem;
+    --type--text-sm: 0.875rem;
+    --type--text-base: 1rem;
+    --type--text-md: 1.313rem;
+    --type--text-lg: 1.75rem;
+    --type--text-xl: 2.3758rem;
+    --type--text-h5: 3.188rem;
+    --type--text-h4: 4.188rem;
+    --type--text-h3: 5.625rem;
+    --type--text-h2: 7.5rem;
+    --type--text-h1: 8rem;
+    --type--text-display: 9rem;
   }
 }
 
@@ -236,4 +236,9 @@
     background: var(--color--blue-600) !important;
     opacity: 1 !important;
   }
+}
+
+number-flow-react::part(currency) {
+	font-weight: normal;
+	font-size: 0.75em;
 }

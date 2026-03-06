@@ -34,7 +34,7 @@ export const projects: CarouselSlide[] = [
     title: "From beans to dreams",
     subtitle: "dự án",
     coverImage: "/workshop.jpg",
-    imageAlt: "Logo Yeo Vietnam",
+    imageAlt: "From beans to dreams",
     buttonText: "tìm hiểu thêm",
 
     images: ["/hero-1.jpg", "/hero-2.jpg", "/hero-3.jpg"],
@@ -50,7 +50,7 @@ export const projects: CarouselSlide[] = [
     title: "summer camp",
     subtitle: "trại hè hướng nghiệp",
     coverImage: "/summer-camp-yeo.jpg",
-    imageAlt: "Logo Yeo Vietnam",
+    imageAlt: "Trại hè hướng nghiệp YEO",
     buttonText: "tìm hiểu thêm",
 
     images: ["/hero-1.jpg", "/hero-2.jpg", "/hero-3.jpg"],
@@ -66,10 +66,26 @@ export const projects: CarouselSlide[] = [
     title: "Business Case Competition",
     subtitle: "Cuộc thi",
     coverImage: "/vhbc-final.jpg",
-    imageAlt: "Project two cover",
+    imageAlt: "Vietnam Business Case Competition",
     buttonText: "tìm hiểu thêm",
 
     images: ["/vhbc-final.jpg", "/vhbc-2022.jpg", "/vhbc-candidat.jpg"],
+    paragraphs: [
+      "VHBC - Vietnam High School Business Case Competition là cuộc thi giải quyết tình huống kinh doanh đầu tiên tại Việt Nam dành cho học sinh THPT, được tổ chức bởi The Trainee Club - YEO Vietnam - Student Consulting Group.",
+      "Cuộc thi được xây dựng với mục tiêu tạo ra một môi trường học tập và trải nghiệm kinh doanh chuyên sâu cho các bạn trẻ có đam mê lĩnh vực Business, giúp học sinh phát triển các kỹ năng thực tiễn theo chuẩn doanh nghiệp, đồng thời hỗ trợ các bạn trong hành trình định hướng nghề nghiệp, chuẩn bị nền tảng vững chắc cho thế hệ nhà lãnh đạo kinh doanh tương lai.",
+    ],
+  },
+   {
+    id: "talkshow",
+    kind: "project",
+
+    title: "Business Case Competition",
+    subtitle: "Cuộc thi",
+    coverImage: "/talkshow.jpg",
+    imageAlt: "talkshow",
+    buttonText: "tìm hiểu thêm",
+
+    images: ["/talkshow.jpg", "/talkshow-2.jpg", "/talkshow-3.jpg"],
     paragraphs: [
       "VHBC - Vietnam High School Business Case Competition là cuộc thi giải quyết tình huống kinh doanh đầu tiên tại Việt Nam dành cho học sinh THPT, được tổ chức bởi The Trainee Club - YEO Vietnam - Student Consulting Group.",
       "Cuộc thi được xây dựng với mục tiêu tạo ra một môi trường học tập và trải nghiệm kinh doanh chuyên sâu cho các bạn trẻ có đam mê lĩnh vực Business, giúp học sinh phát triển các kỹ năng thực tiễn theo chuẩn doanh nghiệp, đồng thời hỗ trợ các bạn trong hành trình định hướng nghề nghiệp, chuẩn bị nền tảng vững chắc cho thế hệ nhà lãnh đạo kinh doanh tương lai.",

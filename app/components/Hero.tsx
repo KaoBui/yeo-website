@@ -27,6 +27,8 @@ export default function Hero() {
 
   const heroRef = useRef<HTMLElement | null>(null);
   const heroFundRef = useRef<HTMLDivElement | null>(null);
+  const aboveFundTextRef = useRef<HTMLParagraphElement | null>(null);
+  const belowFundTextRef = useRef<HTMLParagraphElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const headingRef = useRef<HTMLDivElement | null>(null);
   const subheadingRef = useRef<HTMLDivElement | null>(null);
@@ -79,12 +81,30 @@ export default function Hero() {
         },
         {
           clipPath: "inset(0 0% round 14px)",
+          duration: 0.8,
+          ease: "power3.out",
+        },
+        "<0.5",
+      )
+      .add(() => setFundValue(updatedValue), "<-0.1")
+      .from(
+        aboveFundTextRef.current,
+        {
+          opacity: 0,
           duration: 0.5,
           ease: "power3.out",
         },
-        "<0.4",
+        "<1",
       )
-      .add(() => setFundValue(updatedValue), "<");
+      .from(
+        belowFundTextRef.current,
+        {
+          opacity: 0,
+          duration: 0.5,
+          ease: "power3.out",
+        },
+        "<",
+      );
 
     return () => {
       headingSplit.revert();
@@ -123,7 +143,7 @@ export default function Hero() {
     <section id="hero" ref={heroRef} className="relative mt-0">
       <div
         ref={containerRef}
-        className="site-container flex min-h-[80vh] flex-col items-center justify-center gap-[8%] pt-16 will-change-transform"
+        className="site-container flex min-h-[85vh] flex-col items-center justify-center gap-[8%] pt-16 will-change-transform"
         style={{ willChange: "transform, filter" }}
       >
         <div className="flex flex-col gap-2">
@@ -133,21 +153,21 @@ export default function Hero() {
               alt="Logo Yeo Vietnam"
               width={1000}
               height={1000}
-              className="h-auto w-20 object-contain"
+              className="3xl:w-28 h-auto w-20 object-contain xl:w-24"
             />
             <Image
               src="/rutine-logo.png"
               alt="Rutine Logo"
               width={1000}
               height={1000}
-              className="h-auto w-20"
+              className="3xl:w-28 h-auto w-20 xl:w-24"
             />
             <Image
               src="/nerdbox-logo.jpg"
               alt="Logo Yeo Vietnam"
               width={1000}
               height={1000}
-              className="h-auto w-20 object-contain"
+              className="3xl:w-28 h-auto w-20 object-contain xl:w-24"
             />
           </div>
           {/* <p className="text-secondary text-center text-xs font-medium uppercase">
@@ -170,11 +190,20 @@ export default function Hero() {
             {t("heading")}
           </h1>
         </div>
-        <div className="mt-2 flex flex-col items-center gap-4">
-          <p className="text-secondary text-xs uppercase max-w-[64ch] text-center">{t("fundText")}</p>
+        <div className="mt-2 flex flex-col items-center gap-[2vh]">
+          <p
+            ref={aboveFundTextRef}
+            className="text-secondary text-center text-sm uppercase 2xl:text-base"
+          >
+            {t.rich("fundText", {
+              em: (chunks) => (
+                <span className="text-primary font-bold">{chunks}</span>
+              ),
+            })}
+          </p>
           <div
             ref={heroFundRef}
-            className="bg--blue-600 text-h5 shadow--blue-600/40 flex items-center rounded-xl px-8 py-1 text-white shadow-2xl"
+            className="bg--blue-600 text-h3 shadow--blue-600/40 flex flex-col items-center rounded-2xl px-6 py-1 text-white shadow-2xl"
           >
             <p>
               <NumberFlow
@@ -189,9 +218,15 @@ export default function Hero() {
               />
             </p>
           </div>
+          <p
+            ref={belowFundTextRef}
+            className="text-secondary text-xs uppercase 2xl:text-sm"
+          >
+            {t("belowFundText")}
+          </p>
         </div>
       </div>{" "}
-      <div className="relative -mt-[10vh] h-[35svh] xl:h-[80vh]">
+      <div className="relative -mt-[17vh] h-[35svh] xl:h-[80vh]">
         <CircularGallery
           items={items}
           textColor="#ffffff"

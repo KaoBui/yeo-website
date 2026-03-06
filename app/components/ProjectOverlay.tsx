@@ -60,7 +60,7 @@ export default function ProjectOverlay({
               onClick={(e) => e.stopPropagation()}
             >
               {/* Image row */}
-              <div className="img-container grid h-3/5 min-h-[220px] w-full grid-cols-1 overflow-hidden rounded-[32px] shadow-[0_4px_50px_rgba(0,0,0,0.2)] sm:grid-cols-3">
+              <div className="img-container grid h-1/4 md:h-3/5 min-h-[220px] w-full grid-cols-1 overflow-hidden rounded-[32px] shadow-[0_4px_50px_rgba(0,0,0,0.2)] sm:grid-cols-3">
                 {rowImages.map((src, i) => (
                   <div key={`${project.id}-${src}-${i}`} className="relative">
                     <Image
